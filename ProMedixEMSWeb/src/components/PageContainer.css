@@ -1,0 +1,36 @@
+.page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+}
+
+/* Max Width Variants */
+.page-container-small {
+  max-width: 768px;
+}
+
+.page-container-medium {
+  max-width: 1024px;
+}
+
+.page-container-large {
+  max-width: 1280px;
+}
+
+.page-container-full {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .page-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem 0.75rem;
+  }
+}

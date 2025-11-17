@@ -1,0 +1,9 @@
+[build]
+  # Run npm install and build inside the ProMedixEMSWeb folder to avoid root/package.json issues
+  command = "npm install --prefix ProMedixEMSWeb && npm --prefix ProMedixEMSWeb run build"
+  publish = "ProMedixEMSWeb/dist"
+
+[dev]
+  # Local dev server settings used by Netlify CLI (optional)
+  command = "npm --prefix ProMedixEMSWeb run dev"
+  port = 4173
