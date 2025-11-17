@@ -1,0 +1,121 @@
+.btn {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  font-family: inherit;
+  outline: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* Primary Button - Glassmorphism */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-teal), var(--primary-blue));
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 206, 209, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 206, 209, 0.4);
+}
+
+/* Secondary Button - Glass Effect */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-teal);
+  transform: translateY(-2px);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-teal);
+  color: var(--primary-teal);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary-teal);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Full Width */
+.btn-full-width {
+  width: 100%;
+  display: block;
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Active State */
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+  
+  .btn-small {
+    padding: 0.4rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  
+  .btn-large {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
