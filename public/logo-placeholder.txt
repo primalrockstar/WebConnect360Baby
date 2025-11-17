@@ -1,0 +1,3 @@
+This is a placeholder for the ProMedixEMS logo.
+Replace this with an actual logo.png file.
+Recommended dimensions: 200x60 pixels
