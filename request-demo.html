@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Demo - ProMedix EMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">ProMedix EMS</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="request-demo.html">Request Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="demo-section">
+        <div class="container">
+            <h1>Request a Demo</h1>
+            <p class="demo-subtitle">Experience ProMedix EMS firsthand. Fill out the form below and we'll get back to you shortly.</p>
+
+            <div class="demo-form-container">
+                <form id="demoForm" class="demo-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="institution">Institution *</label>
+                        <input 
+                            type="text" 
+                            id="institution" 
+                            name="institution" 
+                            required 
+                            placeholder="Your institution or organization"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role *</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="it-staff">IT Staff</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            required 
+                            rows="5" 
+                            placeholder="Tell us about your needs and what you'd like to see in the demo"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <h3>Thank you for your request!</h3>
+                    <p>We've received your demo request and will contact you within 24-48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ProMedix EMS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
