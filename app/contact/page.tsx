@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -126,57 +126,24 @@ export default function ContactPage() {
                         <Mail className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <CardTitle className="text-lg">Email</CardTitle>
+                        <CardTitle className="text-lg">Email Support</CardTitle>
                         <CardDescription className="mt-2">
                           General Inquiries: <br />
-                          <a href="mailto:info@promedixems.com" className="text-foreground hover:underline">
-                            info@promedixems.com
+                          <a href="mailto:hello@webconnect360.com" className="text-foreground hover:underline">
+                            hello@webconnect360.com
                           </a>
                         </CardDescription>
                         <CardDescription className="mt-2">
-                          Support: <br />
-                          <a href="mailto:support@promedixems.com" className="text-foreground hover:underline">
-                            support@promedixems.com
+                          Technical Help: <br />
+                          <a href="mailto:tech@webconnect360.com" className="text-foreground hover:underline">
+                            tech@webconnect360.com
                           </a>
                         </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1">
-                        <Phone className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">Phone</CardTitle>
                         <CardDescription className="mt-2">
-                          <a href="tel:1-800-PROMEDIX" className="text-foreground hover:underline">
-                            1-800-PROMEDIX
+                          Payment Issues: <br />
+                          <a href="mailto:payments@webconnect360.com" className="text-foreground hover:underline">
+                            payments@webconnect360.com
                           </a>
-                        </CardDescription>
-                        <CardDescription className="mt-1">
-                          Monday - Friday: 9am - 6pm EST
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1">
-                        <MapPin className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">Office</CardTitle>
-                        <CardDescription className="mt-2">
-                          123 Medical Plaza Drive<br />
-                          Suite 200<br />
-                          Healthcare City, HC 12345
                         </CardDescription>
                       </div>
                     </div>
@@ -221,8 +188,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We typically respond to all inquiries within 24 hours during business days. 
-                  Support tickets are usually addressed within 4-6 hours.
+                  We typically respond to all inquiries within 24-48 hours during business days.
                 </p>
               </CardContent>
             </Card>
@@ -233,18 +199,18 @@ export default function ContactPage() {
               <CardContent>
                 <p className="text-muted-foreground">
                   Yes! We provide personalized demos for training programs and institutions. 
-                  Contact us to schedule a demonstration.
+                  Contact us at hello@webconnect360.com to schedule a demonstration.
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Can I schedule a call?</CardTitle>
+                <CardTitle className="text-xl">Which email should I use?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Absolutely. Let us know your preferred time in the contact form above, and 
-                  we&apos;ll arrange a call that works for your schedule.
+                  Use hello@webconnect360.com for general questions, tech@webconnect360.com for 
+                  technical support, and payments@webconnect360.com for billing issues.
                 </p>
               </CardContent>
             </Card>
