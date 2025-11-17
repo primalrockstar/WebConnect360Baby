@@ -1,0 +1,46 @@
+[
+  {
+    "id": "emt-b",
+    "name": "EMT App",
+    "status": "available",
+    "description": "Comprehensive EMT-B study and practice app for students and programs.",
+    "features": [
+      "Scenario-based learning",
+      "Built-in Flashcards",
+      "PCR Practice Lab",
+      "VoiceNotes Recorder",
+      "Exam Prep"
+    ],
+    "appStoreUrl": "#",
+    "playStoreUrl": "#",
+    "screenshots": ["/public/screenshots/emtb-1.png", "/public/screenshots/emtb-2.png"]
+  },
+  {
+    "id": "aemt",
+    "name": "AEMT App",
+    "status": "coming_soon",
+    "description": "Advanced EMT app with expanded content and practice tools.",
+    "features": [
+      "Advanced scenario practice",
+      "Expanded pharmacology",
+      "Skill tracking"
+    ],
+    "appStoreUrl": "#",
+    "playStoreUrl": "#",
+    "screenshots": []
+  },
+  {
+    "id": "paramedic",
+    "name": "Paramedic App",
+    "status": "coming_soon",
+    "description": "Paramedic-level app for advanced EMS education.",
+    "features": [
+      "Critical care scenarios",
+      "12-lead ECG trainer",
+      "Advanced skills modules"
+    ],
+    "appStoreUrl": "#",
+    "playStoreUrl": "#",
+    "screenshots": []
+  }
+]

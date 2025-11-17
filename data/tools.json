@@ -1,0 +1,37 @@
+[
+  {
+    "id": "flashcards",
+    "name": "Flashcards",
+    "description": "Study key EMS topics with spaced repetition.",
+    "link": "/tools/flashcards",
+    "icon": "BookOpen"
+  },
+  {
+    "id": "voicenotes",
+    "name": "ProMedix VoiceNotes",
+    "description": "Record and transcribe lectures for review.",
+    "link": "/tools/voicenotes",
+    "icon": "Mic"
+  },
+  {
+    "id": "pcr-trainer",
+    "name": "PCR Trainer",
+    "description": "Practice writing patient care reports with feedback.",
+    "link": "/tools/pcr-trainer",
+    "icon": "ClipboardList"
+  },
+  {
+    "id": "ecg-trainer",
+    "name": "ECG Trainer",
+    "description": "Learn and practice ECG interpretation skills.",
+    "link": "/tools/ecg-trainer",
+    "icon": "Activity"
+  },
+  {
+    "id": "skills-assessment",
+    "name": "Skills/Assessment Modules",
+    "description": "Track and assess hands-on EMS skills.",
+    "link": "/tools/skills-assessment",
+    "icon": "CheckCircle"
+  }
+]
