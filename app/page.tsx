@@ -151,7 +151,7 @@ export default function Home() {
                 Built by an EMS student for EMS students.
               </h1>
               <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
-                EMT-B Core, ChapterFlashEMT, and PCR Trainer PRO ship as $29 Stripe downloads directly on EmeritaClinical.com. MedicationsEMS plus the AEMT and Paramedic tracks are currently in build with browser-based previews only—no App Store or Google Play releases planned.
+                EMT-B Core, ChapterFlashEMT, and PCR Trainer PRO ship as $29 Stripe downloads—instant access, no app downloads required. MedicationsEMS plus the AEMT and Paramedic tracks are currently in development.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -458,7 +458,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">All apps live on this platform first</h2>
             <p className="max-w-2xl text-muted-foreground">
               Whether it&apos;s the EMT core curriculum, MedicationsEMS reference, or RhythmLab for ECG mastery, everything is
-              orchestrated inside the neon interface and delivered directly through EmeritaClinical.com—no marketplace listings required.
+              delivered instantly through secure web access—works on any device, no marketplace listings required.
             </p>
           </div>
           <Button asChild variant="outline" className="self-start border-white/30">
@@ -517,10 +517,10 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Availability · Web-first</p>
               <h3 className="text-3xl font-semibold">
-                Every module ships to EmeritaClinical.com—no App Store or Google Play releases.
+                Every module available instantly—no downloads, no waiting.
               </h3>
               <p className="text-muted-foreground">
-                Programs pilot, purchase, and deploy the entire suite via secure browser builds with Stripe-protected access. Cohorts stay in sync across EMT-B Core, PCR Trainer PRO, and the in-progress MedicationsEMS, AEMT, and Paramedic tracks.
+                Purchase once, access forever via secure browser. All apps work on any device with internet—desktop, tablet, or phone. Stripe handles payment, we handle instant delivery.
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
@@ -545,7 +545,7 @@ export default function Home() {
               <div>
                 <p className="text-sm uppercase tracking-wide text-muted-foreground">Paramedic</p>
                 <p className="text-lg font-semibold">Scoping · ALS labs + telemetry modules</p>
-                <p className="text-sm text-muted-foreground">Capstone-ready drills authored for programs that want full-stack ALS prep without an app store dependency.</p>
+                <p className="text-sm text-muted-foreground">Capstone-ready drills for programs that want full-stack ALS prep delivered via instant web access.</p>
               </div>
             </div>
           </CardContent>

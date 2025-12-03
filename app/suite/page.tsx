@@ -85,7 +85,7 @@ export default function SuitePage() {
             The EmeritaClinical EMS ecosystem, neon and Stripe-connected.
           </h1>
           <p className="max-w-3xl text-muted-foreground md:text-lg">
-            EMT-B Core, ChapterFlashEMT, and PCR Trainer PRO are the live lineup, each sold as a $29 Stripe download on EmeritaClinical.com. MedicationsEMS plus the AEMT and Paramedic tracks are actively in build for web delivery only—no App Store or Google Play releases.
+            EMT-B Core, ChapterFlashEMT, and PCR Trainer PRO are the live lineup, each sold as a $29 Stripe download—instant web access, no downloads required. MedicationsEMS plus the AEMT and Paramedic tracks are actively in development.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button asChild size="lg">

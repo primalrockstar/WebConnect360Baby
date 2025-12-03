@@ -6,7 +6,7 @@ export default function InstitutionsPage() {
       <h1 className="text-4xl font-bold mb-4">For Institutions & Programs</h1>
       <p className="mb-6 text-muted-foreground max-w-2xl">
         EmeritaClinical<sup>TM</sup> supports EMS programs with analytics, content libraries, and compliance. EMT-B Core is demo-ready today;
-        MedicationsEMS plus the AEMT and Paramedic tracks are currently in development for secure web-based releases—no App Store or Google Play listings.
+        MedicationsEMS plus the AEMT and Paramedic tracks are currently in development as secure web-based tools.
       </p>
       <div className="grid gap-6 md:grid-cols-2 mb-8">
         <div>

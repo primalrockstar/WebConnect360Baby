@@ -56,7 +56,7 @@ export default function AppsPage() {
             Built by EMS student Shaun Williamson with neon-glass polish, each module enhances accredited programs with flashcards, documentation labs, and competency-mapped drills.
           </p>
           <p className="mt-4 text-muted-foreground">
-            MedicationsEMS, AEMT, and Paramedic experiences are actively in development with invite-only web previews—there are no App Store or Google Play releases planned.
+            MedicationsEMS, AEMT, and Paramedic experiences are actively in development with invite-only web previews.
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <Button asChild>

@@ -57,7 +57,7 @@ export default function TermsPage() {
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">6. Payments & Subscriptions</h2>
         <p className="text-muted-foreground">
-          Subscription fees are billed via Stripe and renew automatically unless canceled. Refunds are handled directly through EmeritaClinical™ policies via Stripe; no app store intermediaries are used.
+          Subscription fees are billed via Stripe and renew automatically unless canceled. Refunds are handled directly through EmeritaClinical™ policies via Stripe.
         </p>
       </section>
 

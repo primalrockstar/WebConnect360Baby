@@ -10,8 +10,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Suite", href: "/suite" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "EMT-B App", href: "/emt-b-app" },
+  { name: "Apps", href: "/apps" },
   { name: "For Programs", href: "/for-programs" },
   { name: "Contact", href: "/contact" },
 ]
