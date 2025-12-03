@@ -182,7 +182,7 @@ export default function Home() {
                   Every app. One neon platform.
                 </CardTitle>
                 <CardDescription>
-                  Crafted alongside active EMS instructors so the official EmeritaClinical EMT logos lead learners through content that feels like the classroom, skills lab, and street.
+                  Built by an EMS student who needed better study tools—now helping thousands of students master EMT, AEMT, and Paramedic content faster.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
