@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: "ProMedixEMS™ – Modern EMT, AEMT, and Paramedic Learning Tools",
+  title: "EmeritaClinical™ – Modern EMT, AEMT, and Paramedic Learning Tools",
   description:
-    "ProMedixEMS™ is a modern EMS learning platform created by EMT Shaun Williamson with study chapters, flashcards, scenarios, medication tools, rhythm training, documentation labs, and more.",
+    "EmeritaClinical™ is a modern EMS learning platform created by EMT Shaun Williamson with study chapters, flashcards, scenarios, medication tools, rhythm training, documentation labs, and more.",
   keywords: [
     "EMT study app",
     "EMT-B training",

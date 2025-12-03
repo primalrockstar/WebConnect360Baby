@@ -31,40 +31,40 @@ const badgeStyles: Record<CardStatus, string> = {
 const primaryTracks: SuiteCard[] = [
   {
     id: "emt-core",
-    title: "ProMedixEMS™ · EMT-B Core",
+    title: "EmeritaClinical™ · EMT-B Core",
     tagline: "Your foundation for the entire EMS pathway.",
     body:
       "Covers full EMT-B competency: assessment, BLS skills, oxygen therapy, fundamentals of pharmacology, and realistic entry-level scenarios. Anchors the entire EMT/AEMT/Paramedic suite releasing to both stores in 2026.",
     badge: "APP STORE + GOOGLE PLAY · 2026",
     status: "launch",
     features: ["Adaptive learning paths", "Instructor & cohort dashboards"],
-    logo: "/images/ProMedEMT-blogo.png",
+  logo: "/images/EmeritaClinicallogo.png",
     primaryCta: { label: "Learn more", href: "/suite#emt-core" },
     secondaryCta: { label: "Request EMT-B demo", href: "mailto:demo@webconnect360.com" },
   },
   {
     id: "aemt",
-    title: "ProMedixEMS™ · AEMT",
+    title: "EmeritaClinical™ · AEMT",
     tagline: "Builds directly on EMT-B with invasive skills and expanded medications.",
     body:
       "Covers IV/IO access, fluid therapy, intermediate pharmacology, airway adjuncts, and scenario-based decision-making designed for crews advancing into advanced practice.",
     badge: "IN DEVELOPMENT · INTERNAL BUILDS",
     status: "dev",
     features: ["Scenario labs", "Competency matrix tracking"],
-    logo: "/images/ProMedAEMTlogo.png",
+  logo: "/images/EmeritaClinicallogo.png",
     primaryCta: { label: "Learn more", href: "/suite#aemt" },
     secondaryCta: { label: "Join waitlist", href: "/contact?type=waitlist" },
   },
   {
     id: "paramedic",
-    title: "ProMedixEMS™ · Paramedic",
+    title: "EmeritaClinical™ · Paramedic",
     tagline: "Advanced ALS training built on top of EMT and AEMT mastery.",
     body:
       "Includes 12-lead ECG interpretation, advanced airways, ALS medications, infusion management, and high-stakes scenarios. Designed to support paramedic candidates through capstone and preceptor workflows.",
     badge: "IN DEVELOPMENT · INTERNAL BUILDS",
     status: "dev",
     features: ["Telemetry-ready modules", "Preceptor tools & ALS algorithms"],
-    logo: "/images/ProMedParamediclogo.png",
+  logo: "/images/EmeritaClinicallogo.png",
     primaryCta: { label: "Learn more", href: "/suite#paramedic" },
     secondaryCta: { label: "Join waitlist", href: "/contact?type=waitlist" },
   },
@@ -73,7 +73,7 @@ const primaryTracks: SuiteCard[] = [
 const platformCards: SuiteCard[] = [
   {
     id: "pcr",
-    title: "ProMedixEMS™ · PCR Practice",
+    title: "EmeritaClinical™ · PCR Practice",
     tagline: "The documentation lab for every level of provider.",
     body:
       "Practice ePCR writing with realistic cases, automated QA scoring, NFC equipment tagging, and scenario-linked documentation drills aligned with EMT/AEMT/Paramedic competencies.",
@@ -86,7 +86,7 @@ const platformCards: SuiteCard[] = [
   },
   {
     id: "flashcards",
-    title: "ProMedixEMS™ · Flashcards",
+    title: "EmeritaClinical™ · Flashcards",
     tagline: "Accelerated reinforcement for all three certification levels.",
     body:
       "Adaptive flashcards using spaced repetition and AI-generated distractors. Covers EMT basics through ALS topics, designed for quick reps on shift or offline study.",
@@ -101,7 +101,7 @@ const platformCards: SuiteCard[] = [
   },
   {
     id: "voicenotes",
-    title: "ProMedix VoiceNotes™",
+    title: "EmeritaClinical VoiceNotes™",
     tagline: "Hands-free capture for students and crews across all levels.",
     body:
       "Record lectures or shift notes with instant AI summaries and secure storage. Evolving into a standalone voice platform supporting EMT, AEMT, and Paramedic learning.",
@@ -190,7 +190,7 @@ export default function SuitePage() {
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                The Complete ProMedixEMS<sup>TM</sup> Suite
+                The Complete EmeritaClinical<sup>TM</sup> Suite
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 From EMT-B to Paramedic — comprehensive training tools for every level of EMS education
@@ -216,7 +216,7 @@ export default function SuitePage() {
                     <Play className="h-3.5 w-3.5" /> Google Play
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1 text-foreground/90">
-                    🔵 ProMedixEMS.com
+                    🔵 EmeritaClinical.com
                   </span>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function SuitePage() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              All ProMedixEMS<sup>TM</sup> Platform Apps
+              All EmeritaClinical<sup>TM</sup> Platform Apps
             </h2>
             <p className="mt-4 text-muted-foreground md:text-xl">
               Comprehensive education and training tools for every EMS provider
@@ -258,7 +258,7 @@ export default function SuitePage() {
                 Built for Success
               </h2>
               <p className="text-muted-foreground md:text-xl">
-                ProMedixEMS Suite is designed with input from experienced EMS educators and 
+                EmeritaClinical Suite is designed with input from experienced EMS educators and 
                 successful EMT-B students. Our tools have helped thousands pass their certification 
                 exams and excel in their EMS careers.
               </p>
@@ -299,7 +299,7 @@ export default function SuitePage() {
                 Ready to Get Started?
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
-                Join ProMedixEMS today and access all suite features
+                Join EmeritaClinical today and access all suite features
               </p>
             </div>
             <div className="space-x-4">

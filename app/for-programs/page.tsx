@@ -15,7 +15,7 @@ export default function ForProgramsPage() {
                 Solutions for EMS Training Programs
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Empower your students and enhance your program with ProMedixEMS. 
+                Empower your students and enhance your program with EmeritaClinical. 
                 Comprehensive tools designed specifically for EMS educators and institutions.
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function ForProgramsPage() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Why Programs Choose ProMedixEMS
+              Why Programs Choose EmeritaClinical
             </h2>
             <p className="mt-4 text-muted-foreground md:text-xl">
               Everything you need to support student success and program excellence
@@ -210,7 +210,7 @@ export default function ForProgramsPage() {
             <Card>
               <CardHeader>
                 <CardDescription className="italic">
-                  &quot;ProMedixEMS has transformed how we deliver content to our students. The 
+                  &quot;EmeritaClinical has transformed how we deliver content to our students. The 
                   analytics help us identify struggling students early, and our pass rates 
                   have improved significantly.&quot;
                 </CardDescription>
@@ -246,7 +246,7 @@ export default function ForProgramsPage() {
                 Ready to Elevate Your Program?
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
-                Schedule a personalized demo to see how ProMedixEMS can benefit your institution
+                Schedule a personalized demo to see how EmeritaClinical can benefit your institution
               </p>
             </div>
             <div className="space-x-4">

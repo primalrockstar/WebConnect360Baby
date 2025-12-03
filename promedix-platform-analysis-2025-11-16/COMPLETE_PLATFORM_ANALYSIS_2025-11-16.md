@@ -1,7 +1,7 @@
-# ProMedix EMS Platform — Comprehensive Analysis
+# EmeritaClinical Platform — Comprehensive Analysis
 _Date: November 16, 2025_
 
-This document consolidates the current architecture, capabilities, technology stack, compliance posture, and deployment readiness of the ProMedix EMS platform across web, mobile, and shared content layers. It is intended as a deep-dive reference for product leadership, engineering, and compliance teams preparing for the upcoming App Store and Google Play submissions.
+This document consolidates the current architecture, capabilities, technology stack, compliance posture, and deployment readiness of the EmeritaClinical platform across web, mobile, and shared content layers. It is intended as a deep-dive reference for product leadership, engineering, and compliance teams preparing for the upcoming App Store and Google Play submissions.
 
 ---
 

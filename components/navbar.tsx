@@ -24,11 +24,11 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">ProMedixEMS™</span>
+            <span className="sr-only">EmeritaClinical™</span>
             <div className="h-20 w-auto flex items-center">
               <Image
-                src="/images/ProMedixEMSLOGO.png"
-                alt="ProMedixEMS™ Logo"
+                src="/images/EmeritaClinicallogo.png"
+                alt="EmeritaClinical™ Logo"
                 width={320}
                 height={80}
                 className="h-20 w-auto"
@@ -75,10 +75,10 @@ export function Navbar() {
           <div className="glass-card fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-                <span className="sr-only">ProMedixEMS™</span>
+                <span className="sr-only">EmeritaClinical™</span>
                 <Image
-                  src="/images/ProMedixEMSLOGO.png"
-                  alt="ProMedixEMS™ Logo"
+                  src="/images/EmeritaClinicallogo.png"
+                  alt="EmeritaClinical™ Logo"
                   width={260}
                   height={64}
                   className="h-16 w-auto"

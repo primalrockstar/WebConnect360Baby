@@ -8,7 +8,7 @@
   },
   {
     "id": "voicenotes",
-    "name": "ProMedix VoiceNotes",
+    "name": "EmeritaClinical VoiceNotes",
     "description": "Record and transcribe lectures for review.",
     "link": "/tools/voicenotes",
     "icon": "Mic"

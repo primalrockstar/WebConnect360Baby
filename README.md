@@ -1,8 +1,8 @@
 
 
-# ProMedixEMS Marketing Website
+# EmeritaClinical Marketing Website
 
-A modern, responsive marketing website for ProMedixEMS - Empowering EMS Education with innovative digital solutions.
+A modern, responsive marketing website for EmeritaClinical - Empowering EMS Education with innovative digital solutions.
 
 ## Tech Stack
 
@@ -43,7 +43,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 ## Project Structure
 
 ```
-ProMedixEMSWeb/
+EmeritaClinicalWeb/
 ├── app/                    # Next.js app directory
 │   ├── contact/           # Contact page
 │   ├── emt-b-app/         # EMT-B App page
@@ -103,10 +103,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## License
 
-All rights reserved © 2025 ProMedixEMS
+All rights reserved © 2025 EmeritaClinical
 
 =======
-# ProMedix EMS Suite
+# EmeritaClinical Suite
 
 Your comprehensive Emergency Medical Services training platform.
 

@@ -1,6 +1,6 @@
 # Images
 
-This folder contains image assets for the ProMedixEMS platform.
+This folder contains image assets for the EmeritaClinical platform.
 
 ## Logo Files
 Place your official logo files here:
@@ -17,7 +17,7 @@ import Image from 'next/image'
 
 <Image 
   src="/images/logo.svg" 
-  alt="ProMedixEMS Logo" 
+  alt="EmeritaClinical Logo" 
   width={200} 
   height={50}
 />

@@ -26,15 +26,15 @@ export default function AppsPage() {
       <section className="container mx-auto px-4 md:px-6">
         <div className="glass-card rounded-3xl border border-white/10 p-8 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">App Store · Google Play · Platform</p>
-          <h1 className="mt-4 text-4xl font-bold">ProMedixEMS<sup>TM</sup> Apps</h1>
+          <h1 className="mt-4 text-4xl font-bold">EmeritaClinical<sup>TM</sup> Apps</h1>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Built by an EMT for EMTs. Originally created as a personal EMT-B study tool, ProMedixEMS™ has grown into a powerful suite of apps for EMT, AEMT, and Paramedic students.
+            Built by an EMT for EMTs. Originally created as a personal EMT-B study tool, EmeritaClinical™ has grown into a powerful suite of apps for EMT, AEMT, and Paramedic students.
           </p>
           <p className="text-muted-foreground">
-            ProMedixEMS™ enhances traditional EMS education with adaptive study modules, custom flashcards, skills walkthroughs, scenario-based learning, medication guides, rhythm tools, PCR practice, and AI-powered note recording. Designed to help you learn faster, retain more, and stay sharp—whether you’re preparing for class, exams, or the field.
+            EmeritaClinical™ enhances traditional EMS education with adaptive study modules, custom flashcards, skills walkthroughs, scenario-based learning, medication guides, rhythm tools, PCR practice, and AI-powered note recording. Designed to help you learn faster, retain more, and stay sharp—whether you’re preparing for class, exams, or the field.
           </p>
           <p className="mt-4 text-muted-foreground">
-            EMT-B Core is available for guided demos today, while every other ProMedixEMS™ app is actively in development for coordinated App Store and Google Play releases in 2026.
+            EMT-B Core is available for guided demos today, while every other EmeritaClinical™ app is actively in development for coordinated App Store and Google Play releases in 2026.
           </p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="secondary">
@@ -44,7 +44,7 @@ export default function AppsPage() {
           </div>
           <p className="mt-4 text-sm text-muted-foreground">Not a replacement for accredited EMS education—built to enhance and support it.</p>
           <p className="mt-2 text-xs text-muted-foreground">
-            App Store / Google Play Disclaimer: ProMedixEMS™ mobile listings are independently published by EMS professional Shaun Williamson, remain subject to the review policies of Apple and Google, and are not affiliated with NREMT, AAOS, or any certifying authority.
+            App Store / Google Play Disclaimer: EmeritaClinical™ mobile listings are independently published by EMS professional Shaun Williamson, remain subject to the review policies of Apple and Google, and are not affiliated with NREMT, AAOS, or any certifying authority.
           </p>
         </div>
       </section>

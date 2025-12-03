@@ -5,7 +5,7 @@ export default function InstitutionsPage() {
     <div className="container mx-auto py-12">
       <h1 className="text-4xl font-bold mb-4">For Institutions & Programs</h1>
       <p className="mb-6 text-muted-foreground max-w-2xl">
-        ProMedixEMS<sup>TM</sup> supports EMS programs with analytics, content libraries, and compliance. EMT-B Core is demo-ready today;
+        EmeritaClinical<sup>TM</sup> supports EMS programs with analytics, content libraries, and compliance. EMT-B Core is demo-ready today;
         every other track is targeting App Store and Google Play launches in 2026.
       </p>
       <div className="grid gap-6 md:grid-cols-2 mb-8">

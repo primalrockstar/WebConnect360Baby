@@ -2,7 +2,7 @@
   {
     "id": "emt-b",
     "name": "Core EMT",
-    "logo": "/images/ProMedEMT-blogo.png",
+  "logo": "/images/EmeritaClinicallogo.png",
     "status": "available",
     "description": "Comprehensive EMT-B study and practice app for students and programs.",
     "features": [
@@ -19,7 +19,7 @@
   {
     "id": "aemt",
     "name": "Advance AEMT",
-    "logo": "/images/ProMedAEMTlogo.png",
+  "logo": "/images/EmeritaClinicallogo.png",
   "status": "coming_soon",
     "description": "Advanced EMT app with expanded content and practice tools.",
     "features": [
@@ -34,7 +34,7 @@
   {
     "id": "paramedic",
     "name": "Paramedic Elite",
-    "logo": "/images/ProMedParamediclogo.png",
+  "logo": "/images/EmeritaClinicallogo.png",
   "status": "coming_soon",
     "description": "Paramedic-level app for advanced EMS education.",
     "features": [

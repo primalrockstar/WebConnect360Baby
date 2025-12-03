@@ -1,4 +1,4 @@
-# ProMedix EMS Platform Status Report
+# EmeritaClinical Platform Status Report
 _Date: November 16, 2025_
 
 This report captures the current repository layout, recent PCR Trainer upgrades, testing coverage, and the remaining work required to ship polished experiences to the Apple App Store and Google Play Store. Use it as a hand-off reference when jumping between repos or planning the next deployment sprint.

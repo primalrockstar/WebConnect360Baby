@@ -12,12 +12,12 @@ export default function MedicalDisclaimer() {
               Medical Disclaimer
             </h3>
             <p className="text-yellow-800 dark:text-yellow-200 leading-relaxed">
-              <strong>FOR EDUCATIONAL PURPOSES ONLY.</strong> ProMedixEMS™ and all associated applications 
+              <strong>FOR EDUCATIONAL PURPOSES ONLY.</strong> EmeritaClinical™ and all associated applications 
               are educational tools designed to supplement—not replace—formal EMS training and certification 
               programs. The information provided should not be used as a substitute for professional medical 
               advice, diagnosis, or treatment. Always follow your local protocols, medical director's orders, 
               and scope of practice. In case of a medical emergency, call 911 or your local emergency number 
-              immediately. By using ProMedixEMS™ products, you acknowledge that webconnect360 and its affiliates 
+              immediately. By using EmeritaClinical™ products, you acknowledge that webconnect360 and its affiliates 
               are not liable for any actions taken based on the educational content provided. This platform 
               does not certify, license, or credential users as EMS providers.
             </p>

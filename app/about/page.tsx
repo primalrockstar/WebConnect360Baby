@@ -76,7 +76,7 @@ const suite = [
   },
 ]
 
-const foundersLetter = `My name is Shaun Williamson, and before I built ProMedixEMS™, I built the very first version of the EMT-B app simply to survive school.
+const foundersLetter = `My name is Shaun Williamson, and before I built EmeritaClinical™, I built the very first version of the EMT-B app simply to survive school.
 
 Like every new EMT student, I was overwhelmed—45+ chapters of material, new terminology, new skills, and the constant pressure to perform. I built a small internal tool to help myself keep track of notes, flashcards, and drills. I never expected it to turn into anything bigger.
 
@@ -84,7 +84,7 @@ But the more I worked on it, the clearer it became: traditional study tools were
 
 With my background in web and software design, I realized I could build something better. Something modern. Something fast. Something designed the way EMS actually works—dynamic, scenario-based, hands-on, and evolving.
 
-That’s how ProMedixEMS™ was born.
+That’s how EmeritaClinical™ was born.
 
 Today, it’s growing into a full suite of tools designed for EMTs, AEMTs, and Paramedics—apps that accelerate learning, reinforce retention, and sharpen critical thinking.
 
@@ -92,17 +92,17 @@ These apps are not meant to replace traditional EMS education. They exist to enh
 
 My goal is simple: to help you learn faster, retain more, and step into the field with real confidence.
 
-Whether you’re studying for your first certification or advancing toward Paramedic, ProMedixEMS™ was created with you in mind.
+Whether you’re studying for your first certification or advancing toward Paramedic, EmeritaClinical™ was created with you in mind.
 
 Stay sharp. Stay ready. Stay learning.
 
 — Shaun Williamson
-Founder, ProMedixEMS™`
+Founder, EmeritaClinical™`
 
 export const metadata = {
-  title: "About ProMedixEMS™",
+  title: "About EmeritaClinical™",
   description:
-    "Learn how EMT Shaun Williamson turned a personal study tool into the ProMedixEMS™ suite for EMT, AEMT, and Paramedic learners.",
+    "Learn how EMT Shaun Williamson turned a personal study tool into the EmeritaClinical™ suite for EMT, AEMT, and Paramedic learners.",
 }
 
 export default function AboutPage() {
@@ -111,13 +111,13 @@ export default function AboutPage() {
       <section className="hero-gradient grid-overlay py-20">
         <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-5">
-            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">About ProMedixEMS™</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">About EmeritaClinical™</p>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Modern tools for tomorrow’s EMS providers.
             </h1>
             <p className="max-w-2xl text-lg text-muted-foreground">
               Built by Emergency Medical Technician Shaun Williamson to enhance—not replace—traditional EMS education.
-              ProMedixEMS™ started as a personal study tool and has grown into a neon glass platform for EMT, AEMT, and Paramedic learners.
+              EmeritaClinical™ started as a personal study tool and has grown into a neon glass platform for EMT, AEMT, and Paramedic learners.
             </p>
             <div className="flex flex-wrap gap-4">
                   <Button asChild size="lg" className="px-8 text-base">
@@ -130,9 +130,9 @@ export default function AboutPage() {
           </div>
           <Card className="border-white/10">
             <CardHeader>
-              <CardTitle className="text-2xl">About ProMedixEMS™</CardTitle>
+              <CardTitle className="text-2xl">About EmeritaClinical™</CardTitle>
               <CardDescription>
-                ProMedixEMS™ was founded by EMT Shaun Williamson, who originally built the platform to survive EMT-B school.
+                EmeritaClinical™ was founded by EMT Shaun Williamson, who originally built the platform to survive EMT-B school.
                 The mission is simple: give every EMS student and provider the tools to learn faster, test better, and perform with confidence.
               </CardDescription>
             </CardHeader>
@@ -152,7 +152,7 @@ export default function AboutPage() {
         <div className="space-y-5">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">A platform built out of necessity.</h2>
           <p className="text-muted-foreground">
-            ProMedixEMS™ began when Shaun created a personal web app during EMT-B school to organize notes, drills, and flashcards.
+            EmeritaClinical™ began when Shaun created a personal web app during EMT-B school to organize notes, drills, and flashcards.
             The first version—built out of necessity—quickly revealed a bigger opportunity: modern EMS learning tools were missing.
           </p>
           <p className="text-muted-foreground">
@@ -160,7 +160,7 @@ export default function AboutPage() {
             an entire generation of EMS providers could benefit even more.
           </p>
           <p className="text-muted-foreground">
-            That realization became ProMedixEMS™—a growing suite of intelligent, mobile-first training and reference apps designed to support EMTs, AEMTs, and Paramedics.
+            That realization became EmeritaClinical™—a growing suite of intelligent, mobile-first training and reference apps designed to support EMTs, AEMTs, and Paramedics.
           </p>
         </div>
         <Card className="border-white/10">
@@ -170,7 +170,7 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <p className="text-muted-foreground">
-              ProMedixEMS™ bridges the gap with tools that:
+              EmeritaClinical™ bridges the gap with tools that:
             </p>
             <ul className="space-y-2">
               {providerBenefits.map((benefit) => (
@@ -190,9 +190,9 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 md:px-6">
         <div className="mb-8 space-y-3 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Technology philosophy</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">The ProMedixEMS™ tech philosophy</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">The EmeritaClinical™ tech philosophy</h2>
           <p className="mx-auto max-w-3xl text-muted-foreground">
-            Every app in the ProMedixEMS™ suite is built with the same core principles.
+            Every app in the EmeritaClinical™ suite is built with the same core principles.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -214,7 +214,7 @@ export default function AboutPage() {
           <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">The platform suite</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">A complete, interconnected ecosystem</h2>
           <p className="mx-auto max-w-3xl text-muted-foreground">
-            ProMedixEMS™ is expanding into a full set of adaptive study modules, medication companions, rhythm trainers, flashcard systems, documentation labs, and voice-note tools.
+            EmeritaClinical™ is expanding into a full set of adaptive study modules, medication companions, rhythm trainers, flashcard systems, documentation labs, and voice-note tools.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -237,13 +237,13 @@ export default function AboutPage() {
             <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Why it matters</p>
             <h3 className="text-3xl font-semibold">EMS education is demanding. Study time is limited.</h3>
             <p className="text-muted-foreground">
-              ProMedixEMS™ exists because Shaun lived that experience—and knew it could be better. These apps enhance traditional EMS learning, reinforce classroom skills, and help students and providers stay sharp on shift.
+              EmeritaClinical™ exists because Shaun lived that experience—and knew it could be better. These apps enhance traditional EMS learning, reinforce classroom skills, and help students and providers stay sharp on shift.
             </p>
             <p className="text-muted-foreground">
               The mission is simple: give every EMS student and provider the tools to learn faster, test better, and perform with confidence in the field.
             </p>
             <p className="text-muted-foreground">
-              Whether you’re starting your EMT journey or leveling up to Paramedic, ProMedixEMS™ is designed to grow with you.
+              Whether you’re starting your EMT journey or leveling up to Paramedic, EmeritaClinical™ is designed to grow with you.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild>
@@ -258,11 +258,11 @@ export default function AboutPage() {
         <Card className="border-white/10">
           <CardHeader>
             <CardTitle>Founder bio</CardTitle>
-            <CardDescription>Shaun Williamson · Founder, ProMedixEMS™</CardDescription>
+            <CardDescription>Shaun Williamson · Founder, EmeritaClinical™</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-muted-foreground">
             <p>
-              Shaun is an Emergency Medical Technician and software designer who created the first version of ProMedixEMS™ to manage the intense demands of EMT school.
+              Shaun is an Emergency Medical Technician and software designer who created the first version of EmeritaClinical™ to manage the intense demands of EMT school.
             </p>
             <p>
               With a background in web and software development, he saw an opportunity to modernize EMS learning tools and make them more accessible for students and providers everywhere.
@@ -278,7 +278,7 @@ export default function AboutPage() {
         <Card className="border-white/10">
           <CardHeader>
             <CardTitle>Founder’s Letter</CardTitle>
-            <CardDescription>From Shaun Williamson, Founder of ProMedixEMS™</CardDescription>
+            <CardDescription>From Shaun Williamson, Founder of EmeritaClinical™</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4 whitespace-pre-line text-muted-foreground">{foundersLetter}</div>
@@ -294,10 +294,10 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-muted-foreground">
             <p>
-              ProMedixEMS™ is an independently developed EMS training and study platform founded by Emergency Medical Technician Shaun Williamson. All educational content, summaries, explanations, scenarios, flashcards, and study materials within ProMedixEMS™ are original works, AI-assisted reinterpretations, or fair-use educational derivatives created from publicly available information.
+              EmeritaClinical™ is an independently developed EMS training and study platform founded by Emergency Medical Technician Shaun Williamson. All educational content, summaries, explanations, scenarios, flashcards, and study materials within EmeritaClinical™ are original works, AI-assisted reinterpretations, or fair-use educational derivatives created from publicly available information.
             </p>
             <p>
-              ProMedixEMS™ is not affiliated with, endorsed by, or officially connected to the following organizations:
+              EmeritaClinical™ is not affiliated with, endorsed by, or officially connected to the following organizations:
             </p>
             <ul className="list-disc space-y-1 pl-6">
               <li>The National Registry of Emergency Medical Technicians (NREMT)</li>
@@ -309,7 +309,7 @@ export default function AboutPage() {
               References to EMS standards, skills, medications, or protocols are based on publicly available national scope-of-practice models, industry best practices, and general EMS education principles. No proprietary textbook content, diagrams, questions, or phrasing from copyrighted sources is used in the platform.
             </p>
             <p>
-              ProMedixEMS™ is designed to supplement and reinforce traditional EMS education, not replace accredited coursework, approved curricula, clinical rotations, or certification programs. Users are responsible for following their local protocols, medical director guidance, and official certifying requirements.
+              EmeritaClinical™ is designed to supplement and reinforce traditional EMS education, not replace accredited coursework, approved curricula, clinical rotations, or certification programs. Users are responsible for following their local protocols, medical director guidance, and official certifying requirements.
             </p>
           </CardContent>
         </Card>
@@ -319,7 +319,7 @@ export default function AboutPage() {
         <Card className="border-white/10">
           <CardContent className="flex flex-col gap-6 p-8 text-center">
             <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Ready to get started?</p>
-            <h3 className="text-3xl font-bold sm:text-4xl">ProMedixEMS™ can help your cohort learn sharper, train smarter, and perform stronger.</h3>
+            <h3 className="text-3xl font-bold sm:text-4xl">EmeritaClinical™ can help your cohort learn sharper, train smarter, and perform stronger.</h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button asChild size="lg" className="px-10 text-base">
                 <Link href="/contact">Contact the team</Link>

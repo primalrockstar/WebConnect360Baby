@@ -29,14 +29,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <span className="text-2xl font-bold text-foreground">ProMedixEMS<sup>TM</sup></span>
+            <span className="text-2xl font-bold text-foreground">EmeritaClinical<sup>TM</sup></span>
             <p className="text-sm leading-6 text-muted-foreground">
               Empowering EMS education with innovative digital solutions.
             </p>
             <div className="rounded-2xl border border-white/10 p-4 text-sm text-muted-foreground shadow-inner">
-              <p className="font-semibold text-foreground">About ProMedixEMS™</p>
+              <p className="font-semibold text-foreground">About EmeritaClinical™</p>
               <p className="mt-2">
-                Founded by Emergency Medical Technician and software designer Shaun Williamson, ProMedixEMS™ is a modern suite of EMS learning tools designed to enhance traditional EMT, AEMT, and Paramedic education.
+                Founded by Emergency Medical Technician and software designer Shaun Williamson, EmeritaClinical™ is a modern suite of EMS learning tools designed to enhance traditional EMT, AEMT, and Paramedic education.
               </p>
               <p className="mt-2">
                 With adaptive study modules, medication guides, rhythm labs, documentation practice, and more, the platform helps students learn faster and providers stay sharp.
@@ -89,9 +89,9 @@ export function Footer() {
         </div>
         <div className="mt-16 border-t border-border pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-muted-foreground">
-            &copy; {new Date().getFullYear()} ProMedixEMS<sup>TM</sup>. All rights reserved.<br />
+            &copy; {new Date().getFullYear()} EmeritaClinical<sup>TM</sup>. All rights reserved.<br />
             A <a href="https://webconnect360.com" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">webconnect360</a> product: designed, built, and supported for EMS excellence.
-            <br />ProMedixEMS™ is an independent EMS education tool and is not affiliated with NREMT, AAOS, or any certifying body.
+            <br />EmeritaClinical™ is an independent EMS education tool and is not affiliated with NREMT, AAOS, or any certifying body.
           </p>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ProMedixEMS™ Terms of Service",
-  description: "Review the WebConnect360 LLC Terms governing use of ProMedixEMS™ educational software and services.",
+  title: "EmeritaClinical™ Terms of Service",
+  description: "Review the WebConnect360 LLC Terms governing use of EmeritaClinical™ educational software and services.",
 }
 
 const effectiveDate = "November 18, 2025"
@@ -22,21 +22,21 @@ export default function TermsPage() {
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">1. Acceptance of Terms</h2>
         <p className="text-muted-foreground">
-          By accessing or using ProMedixEMS™, you agree to these Terms of Service. If you do not agree, do not use the platform.
+          By accessing or using EmeritaClinical™, you agree to these Terms of Service. If you do not agree, do not use the platform.
         </p>
       </section>
 
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">2. Educational Purpose Only</h2>
         <p className="text-muted-foreground">
-          ProMedixEMS™ provides supplemental study tools. It does not replace accredited EMS courses, classroom instruction, clinical hours or labs, or official certification preparation required by the NREMT or state agencies.
+          EmeritaClinical™ provides supplemental study tools. It does not replace accredited EMS courses, classroom instruction, clinical hours or labs, or official certification preparation required by the NREMT or state agencies.
         </p>
       </section>
 
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">3. No Affiliation</h2>
         <p className="text-muted-foreground">
-          ProMedixEMS™ is not affiliated with, endorsed by, or officially connected to the NREMT, AAOS, Emergency Care & Transportation of the Sick and Injured, or any EMS publisher or certifying body. All content is original, fair-use, or based on publicly available EMS education standards.
+          EmeritaClinical™ is not affiliated with, endorsed by, or officially connected to the NREMT, AAOS, Emergency Care & Transportation of the Sick and Injured, or any EMS publisher or certifying body. All content is original, fair-use, or based on publicly available EMS education standards.
         </p>
       </section>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">9. Limitation of Liability</h2>
         <p className="text-muted-foreground">
-          ProMedixEMS™ provides educational content "as is" without warranties. We are not liable for exam performance, clinical decisions, misuse of information, or damages arising from platform use. Always follow your local protocols, medical director, and certifying body requirements.
+          EmeritaClinical™ provides educational content "as is" without warranties. We are not liable for exam performance, clinical decisions, misuse of information, or damages arising from platform use. Always follow your local protocols, medical director, and certifying body requirements.
         </p>
       </section>
 

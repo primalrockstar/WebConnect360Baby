@@ -1,3 +1,3 @@
-This is a placeholder for the ProMedixEMS logo.
+This is a placeholder for the EmeritaClinical logo.
 Replace this with an actual logo.png file.
 Recommended dimensions: 200x60 pixels

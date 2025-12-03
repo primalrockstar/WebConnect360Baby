@@ -7,43 +7,43 @@
 +  "version": "0.0.0",
 +  "private": true,
 +  "scripts": {
-+    "install": "npm --prefix ProMedixEMSWeb install",
-+    "build": "npm --prefix ProMedixEMSWeb run build",
-+    "start": "npm --prefix ProMedixEMSWeb run start"
++    "install": "npm --prefix EmeritaClinicalWeb install",
++    "build": "npm --prefix EmeritaClinicalWeb run build",
++    "start": "npm --prefix EmeritaClinicalWeb run start"
 +  }
 +}
 +
 +*** End Patch
 +
 +*** Begin Patch
-+*** Add File: ProMedixEMSWeb/netlify.toml
++*** Add File: EmeritaClinicalWeb/netlify.toml
 ++[build]
-+  # Run npm install and build inside the ProMedixEMSWeb folder to avoid root/package.json issues
-+  command = "npm install --prefix ProMedixEMSWeb && npm --prefix ProMedixEMSWeb run build"
-+  publish = "ProMedixEMSWeb/dist"
++  # Run npm install and build inside the EmeritaClinicalWeb folder to avoid root/package.json issues
++  command = "npm install --prefix EmeritaClinicalWeb && npm --prefix EmeritaClinicalWeb run build"
++  publish = "EmeritaClinicalWeb/dist"
 +
 +[dev]
 +  # Local dev server settings used by Netlify CLI (optional)
-+  command = "npm --prefix ProMedixEMSWeb run dev"
++  command = "npm --prefix EmeritaClinicalWeb run dev"
 +  port = 4173
 +
 +*** End Patch
 +
 +*** Begin Patch
-+*** Update File: ProMedixEMSWeb/index.html
++*** Update File: EmeritaClinicalWeb/index.html
 +@@
 -<!DOCTYPE html>
 -<html lang="en">
 -<head>
 -    <meta charset="UTF-8">
 -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
--    <title>ProMedix EMS - Medical Education Platform</title>
+-    <title>EmeritaClinical - Medical Education Platform</title>
 -    <link rel="stylesheet" href="styles.css">
 -</head>
 -<body>
 -    <nav class="navbar">
 -        <div class="container">
--            <div class="nav-brand">ProMedix EMS</div>
+-            <div class="nav-brand">EmeritaClinical</div>
 -            <ul class="nav-links">
 -                <li><a href="index.html">Home</a></li>
 -                <li><a href="pricing.html">Pricing</a></li>
@@ -54,7 +54,7 @@
 -
 -    <header class="hero">
 -        <div class="container">
--            <h1>Welcome to ProMedix EMS</h1>
+-            <h1>Welcome to EmeritaClinical</h1>
 -            <p>Your comprehensive medical education management system</p>
 -            <div class="hero-buttons">
 -                <a href="pricing.html" class="btn btn-primary">View Pricing</a>
@@ -85,7 +85,7 @@
 -
 -    <footer class="footer">
 -        <div class="container">
--            <p>&copy; 2025 ProMedix EMS. All rights reserved.</p>
+-            <p>&copy; 2025 EmeritaClinical. All rights reserved.</p>
 -        </div>
 -    </footer>
 -</body>
@@ -96,7 +96,7 @@
 -    <meta charset="UTF-8" />
 -    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
--    <title>ProMedix EMS - Emergency Medical Services Platform</title>
+-    <title>EmeritaClinical - Emergency Medical Services Platform</title>
 -  </head>
 -  <body>
 -    <div id="root"></div>
@@ -110,7 +110,7 @@
 +    <meta charset="UTF-8" />
 +    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>ProMedix EMS - Emergency Medical Services Platform</title>
++    <title>EmeritaClinical - Emergency Medical Services Platform</title>
 +  </head>
 +  <body>
 +    <div id="root"></div>

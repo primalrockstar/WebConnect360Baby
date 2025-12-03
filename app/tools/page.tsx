@@ -18,7 +18,7 @@ const iconMap: Record<string, any> = {
 export default function ToolsPage() {
   return (
     <div className="container mx-auto py-12">
-  <h1 className="text-4xl font-bold mb-8 text-center">ProMedixEMS<sup>TM</sup> Tools</h1>
+  <h1 className="text-4xl font-bold mb-8 text-center">EmeritaClinical<sup>TM</sup> Tools</h1>
       <div className="grid gap-8 md:grid-cols-3">
         {tools.map((tool: any) => {
           const Icon = iconMap[tool.icon] || BookOpen;

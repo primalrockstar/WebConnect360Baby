@@ -1,9 +1,9 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ProMedixEMS™ Privacy Policy",
+  title: "EmeritaClinical™ Privacy Policy",
   description:
-    "Learn how ProMedixEMS™ and WebConnect360 LLC collect, use, and protect information across mobile and web apps for EMS education.",
+    "Learn how EmeritaClinical™ and WebConnect360 LLC collect, use, and protect information across mobile and web apps for EMS education.",
 }
 
 const effectiveDate = "November 18, 2025"
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">1. Overview</h2>
         <p className="text-muted-foreground">
-          ProMedixEMS™ ("we," "us," or "our") is an educational software platform created by WebConnect360 LLC.
+          EmeritaClinical™ ("we," "us," or "our") is an educational software platform created by WebConnect360 LLC.
           We provide mobile and web-based study tools for EMT, AEMT, and Paramedic learners. This Privacy Policy
           explains how we collect, use, and protect information when you use our apps or website.
         </p>
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h3 className="font-semibold text-foreground">C. No PHI (Protected Health Information)</h3>
             <p>
-              ProMedixEMS™ does not collect or store any PHI. Our public-facing educational apps are not HIPAA-covered
+              EmeritaClinical™ does not collect or store any PHI. Our public-facing educational apps are not HIPAA-covered
               services. StudyConnectPro™ is HIPAA-ready but operates under a separate privacy policy.
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
       <section className="space-y-4 rounded-3xl border border-white/10 bg-card/50 p-8 shadow-xl">
         <h2 className="text-2xl font-semibold">7. Children’s Privacy</h2>
         <p className="text-muted-foreground">
-          ProMedixEMS™ is intended for adults and students in accredited EMS programs. We do not knowingly collect information from
+          EmeritaClinical™ is intended for adults and students in accredited EMS programs. We do not knowingly collect information from
           children under 13.
         </p>
       </section>

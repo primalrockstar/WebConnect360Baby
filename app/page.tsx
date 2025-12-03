@@ -99,7 +99,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-[11px] uppercase tracking-[0.4em] text-muted-foreground">
-              <span className="text-primary">ProMedixEMS™</span>
+              <span className="text-primary">EmeritaClinical™</span>
               Platform
             </div>
             <div className="space-y-5">
@@ -138,7 +138,7 @@ export default function Home() {
                   Every app. One neon platform.
                 </CardTitle>
                 <CardDescription>
-                  Crafted alongside active EMS instructors so the official ProMedix EMT logos lead learners through content that feels like the classroom, skills lab, and street.
+                  Crafted alongside active EMS instructors so the official EmeritaClinical EMT logos lead learners through content that feels like the classroom, skills lab, and street.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -150,7 +150,7 @@ export default function Home() {
                     <Play className="h-4 w-4" /> Google Play · 2026
                   </span>
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                    🔵 ProMedixEMS.com · Beta now
+                    🔵 EmeritaClinical.com · Beta now
                   </span>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -166,7 +166,7 @@ export default function Home() {
                 <CardTitle className="text-base uppercase tracking-[0.3em] text-muted-foreground">
                   Flagship tracks
                 </CardTitle>
-                <CardDescription>New ProMedix EMT logos showcased across the entire site.</CardDescription>
+                <CardDescription>New EmeritaClinical EMT logos showcased across the entire site.</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-wrap items-center gap-6">
                 {flagshipApps.map((app) => (
@@ -190,7 +190,7 @@ export default function Home() {
         <Card className="border-white/10">
           <CardContent className="grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">About ProMedixEMS™</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">About EmeritaClinical™</p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Modern EMS training built by EMT Shaun Williamson.
               </h2>
@@ -198,7 +198,7 @@ export default function Home() {
                 What began as a personal study tool during Shaun’s EMT-B training quickly evolved into a complete suite of apps designed to help EMS students and providers learn faster and perform with confidence. Our mission is simple: enhance EMS education—not replace it.
               </p>
               <p className="text-muted-foreground">
-                The growing ProMedixEMS™ suite includes study modules, medication companions, rhythm trainers, flashcard systems, documentation labs, and voice-note tools—all designed around real EMS workflows.
+                The growing EmeritaClinical™ suite includes study modules, medication companions, rhythm trainers, flashcard systems, documentation labs, and voice-note tools—all designed around real EMS workflows.
               </p>
             </div>
             <div className="space-y-4 rounded-2xl border border-white/10 p-6">
@@ -207,7 +207,7 @@ export default function Home() {
                 EMS learning should be modern, intelligent, and accessible.
               </p>
               <p className="text-muted-foreground text-sm">
-                ProMedixEMS™ exists to support classroom learning, improve retention, and keep providers sharp on shift—with neon glass polish that matches the new logo system.
+                EmeritaClinical™ exists to support classroom learning, improve retention, and keep providers sharp on shift—with neon glass polish that matches the new logo system.
               </p>
             </div>
           </CardContent>
@@ -327,7 +327,7 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Availability · 2026</p>
               <h3 className="text-3xl font-semibold">
-                Every module ships simultaneously to ProMedixEMS.com, the App Store, and Google Play.
+                Every module ships simultaneously to EmeritaClinical.com, the App Store, and Google Play.
               </h3>
               <p className="text-muted-foreground">
                 Programs can pilot the neon platform today, then flip the switch for learners once the stores approve the
@@ -362,7 +362,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="rounded-2xl bg-white/5 p-4 text-sm text-muted-foreground">
-                ProMedixEMS.com hosts the EMT-B Core experience today so programs can run guided demos and faculty
+                EmeritaClinical.com hosts the EMT-B Core experience today so programs can run guided demos and faculty
                 reviews while the remaining suite tracks finalize for the coordinated 2026 App Store and Google Play launches.
               </div>
             </div>

@@ -15,7 +15,7 @@ export default function EMTBAppPage() {
                 EMT-B Mobile App
               </h1>
               <p className="text-muted-foreground md:text-xl">
-                Study anywhere, anytime with the ProMedixEMS mobile app. 
+                Study anywhere, anytime with the EmeritaClinical mobile app. 
                 Your complete EMT-B study companion in your pocket.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
