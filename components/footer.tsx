@@ -40,7 +40,7 @@ export function Footer() {
                 When I was an EMS student, I built these tools to help me survive school. EmeritaClinical™ is a modern suite of EMS learning apps designed to enhance traditional EMT, AEMT, and Paramedic education.
               </p>
               <p className="mt-2">
-                With adaptive study modules, medication guides, rhythm labs, documentation practice, and more, the platform helps students learn faster and providers stay sharp.
+                With adaptive study modules, medication guides, documentation practice, and more, the platform helps students learn faster and providers stay sharp.
                 Not a replacement for accredited EMS training—an enhancement to support it.
               </p>
             </div>
