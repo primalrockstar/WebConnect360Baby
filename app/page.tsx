@@ -1,300 +1,589 @@
 import Link from "next/link"
-import Image from "next/image"
+import apps from "@/data/apps.json"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Sparkles, Zap, Award, Clock, TrendingUp, Shield, Users } from "lucide-react"
-import { LandingPageClient, TrackableButton } from "./landing-client"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { LogoWordmark } from "@/components/logo-wordmark"
+import {
+  Activity,
+  Apple,
+  ArrowUpRight,
+  Check,
+  Clock,
+  Layers,
+  Play,
+  ShieldCheck,
+  ShoppingCart,
+  Sparkles,
+  Users,
+  type LucideIcon,
+} from "lucide-react"
 
-export const metadata = {
-  title: "EMS Study Bundle - 3 Apps for $36.75 | EmeritaClinical",
-  description: "EMT-B Core (45 chapters, 675+ flashcards), ChapterFlashEMT (spaced repetition), and PCR Trainer Pro. Built by an EMS student to help you retain more.",
+type AppTier = "core" | "extension" | "roadmap"
+type AppStatus = "available" | "coming_soon" | "in_development"
+
+type AppEntry = {
+  id: string
+  name: string
+  shortName: string
+  tier: AppTier
+  status: AppStatus
+  tagline: string
+  description: string
+  features: string[]
+  price?: number
+  badge?: string
+  stripeCheckoutUrl?: string
+  previewLink?: string
+  bundleEligible?: boolean
 }
 
-export default function LandingPage() {
+const appsData = apps as AppEntry[]
+const flagshipIds = new Set(["emt-b", "chapterflash-emt", "pcr-trainer-pro"])
+const orderedApps = [
+  ...appsData.filter((app) => flagshipIds.has(app.id)),
+  ...appsData.filter((app) => !flagshipIds.has(app.id)),
+]
+
+const marqueeItems = [
+  "NREMT-aligned competencies",
+  "Scenario labs + PCR practice",
+  "Adaptive flashcards",
+  "Voice-first documentation",
+  "Real-time cohort analytics",
+  "App + mobile parity in 2026",
+]
+
+type Pillar = {
+  title: string
+  body: string
+  points: string[]
+  Icon: LucideIcon
+}
+
+const highlightPillars: Pillar[] = [
+  {
+    title: "Accreditation-ready content",
+    body: "Every skill, medication, and scenario is mapped to EMT, AEMT, and Paramedic competencies with instructor notes built in.",
+    points: ["State + NREMT tagging", "Auto-generated lesson briefs"],
+    Icon: ShieldCheck,
+  },
+  {
+    title: "Immersive training lab",
+    body: "High-fidelity scenario labs, PCR drills, and flashcards feel like the field so learners can rehearse decisions before the call.",
+    points: ["Scenario & PCR sync", "VoiceNotes + AI summaries"],
+    Icon: Layers,
+  },
+  {
+    title: "Program intelligence",
+    body: "Live dashboards reveal cohort progress, remediation needs, and readiness signals before certification day.",
+    points: ["Cohort analytics", "Automated skill tracking"],
+    Icon: Activity,
+  },
+]
+
+const heroStats = [
+  { value: "$29", label: "One-time per app" },
+  { value: "3", label: "Stripe-ready premium tools" },
+  { value: "2026", label: "AEMT + Paramedic roadmap" },
+]
+
+const pricingTiers = [
+  {
+    id: "single",
+    title: "Single Tool",
+    price: "$29",
+    subtext: "/ app",
+    description: "Choose EMT-B Core, ChapterFlashEMT, or PCR Trainer PRO.",
+    features: ["Lifetime access", "Offline ready", "Email receipt via Stripe"],
+    cta: { label: "Select your app", href: "#ems-suite", variant: "outline" as const },
+  },
+  {
+    id: "bundle",
+    title: "EmeritaClinical Bundle",
+    badge: "25% OFF HOLIDAY SPECIAL",
+    original: "$49",
+    price: "$36.75",
+    subtext: "one-time (use code HOLIDAY25)",
+    description: "Bundle EMT-B Core + ChapterFlashEMT + PCR Trainer PRO.",
+    features: ["3 premium tools", "Promo code ready", "Instant Stripe delivery"],
+    cta: { label: "Buy full bundle", href: "https://buy.stripe.com/3cI9AU6C5el619cat28k802" },
+  },
+  {
+    id: "classroom",
+    title: "Classroom",
+    price: "Bulk",
+    subtext: "pricing",
+    description: "Volume discounts plus instructor dashboards.",
+    features: ["Instructor console", "Volume discounts", "Custom onboarding"],
+    cta: { label: "Contact sales", href: "/contact", variant: "outline" as const },
+  },
+]
+
+const statusStyles: Record<AppStatus, { label: string; className: string }> = {
+  available: {
+    label: "Available in platform beta",
+    className: "bg-emerald-500/10 text-emerald-200 border-emerald-500/30",
+  },
+  coming_soon: {
+    label: "Arriving with 2026 releases",
+    className: "bg-amber-400/10 text-amber-100 border-amber-400/30",
+  },
+  in_development: {
+    label: "In development",
+    className: "bg-slate-500/20 text-slate-200 border-slate-500/30",
+  },
+}
+
+export default function Home() {
+  const flagshipApps = orderedApps.filter((app) => flagshipIds.has(app.id))
+  const purchaseReadyApps = orderedApps.filter((app) => app.tier !== "roadmap")
+  const roadmapApps = orderedApps.filter((app) => app.tier === "roadmap")
+
   return (
-    <>
-      <LandingPageClient />
-      <div className="flex min-h-screen flex-col bg-slate-950">
-      {/* Hero Section - Bold Gradient */}
-      <section className="relative overflow-hidden px-4 py-24 md:py-32 lg:py-40">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-900">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE4YzAgOS45NDEtOC4wNTkgMTgtMTggMThzLTE4LTguMDU5LTE4LTE4IDguMDU5LTE4IDE4LTE4IDE4IDguMDU5IDE4IDE4Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
-          {/* Glow effect */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-purple-500/30 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container relative z-10 mx-auto max-w-6xl">
-          <div className="flex flex-col items-center space-y-8 text-center">
-            {/* Trust Badge */}
-            <div className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30">
-              <Award className="h-4 w-4 text-yellow-300" />
-              <span className="text-sm font-medium text-white">Built by EMS students, trusted by programs nationwide</span>
+    <div className="flex flex-col gap-16 pb-20">
+      <section className="relative overflow-hidden hero-gradient grid-overlay py-16 md:py-24 lg:py-32">
+        <div className="container relative z-10 mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-[11px] uppercase tracking-[0.4em] text-muted-foreground">
+              <span className="text-primary">EmeritaClinical™</span>
+              Platform
             </div>
-
-            {/* Massive Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl font-black tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-                Study Smarter.
-                <br />
-                <span className="bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-100 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(253,224,71,0.5)]">
-                  Retain More. Think Critically.
-                </span>
+            <div className="space-y-5">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                The WebConnect360 EMS suite, reimagined as EmeritaClinical™.
               </h1>
-              <p className="mx-auto max-w-2xl text-xl font-medium text-blue-100 md:text-2xl">
-                EMT-B Core with 45 chapters, ChapterFlashEMT spaced repetition, and PCR Report Sim. <br className="hidden sm:block" />
-                <span className="text-white">Everything you need to reinforce classroom learning, build real skills, and pass the NREMT.</span>
+              <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
+                EMT-B Core, ChapterFlashEMT, and PCR Trainer PRO are live with $29 Stripe checkouts. MedicationsEMS, AEMT, and Paramedic tracks follow the same roadmap releasing across web, App Store, and Google Play.
               </p>
             </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col items-center gap-4 sm:flex-row">
-              <a href="https://buy.stripe.com/5kA6s03xJ0Mv0Ve4gj" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="group relative overflow-hidden bg-white px-10 py-7 text-lg font-bold text-blue-700 shadow-2xl transition-all hover:scale-105 hover:bg-blue-50 hover:shadow-white/20">
-                  <Zap className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
-                  Get All Three Apps - $36.75
-                </Button>
-              </a>
-              <Link href="/apps">
-                <Button size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 px-8 py-7 text-lg font-semibold text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50">
-                  See What's Inside
-                </Button>
-              </Link>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild size="lg" className="px-8 text-base">
+                <Link href="#ems-suite" className="flex items-center gap-2">
+                  Shop the EMS suite
+                  <ArrowUpRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-white/30 px-8 text-base">
+                <Link href="/contact">Request a program preview</Link>
+              </Button>
             </div>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-medium text-blue-100">
-              <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                <Check className="h-4 w-4 text-yellow-300" />
-                <span>Code <span className="font-bold text-yellow-300">HOLIDAY25</span></span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                <Clock className="h-4 w-4 text-yellow-300" />
-                <span>Instant access</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-                <Shield className="h-4 w-4 text-yellow-300" />
-                <span>No subscriptions, ever</span>
-              </div>
+            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="space-y-1">
+                  <p className="text-3xl font-semibold text-foreground">{stat.value}</p>
+                  <p>{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
+          <div className="space-y-6">
+            <Card className="border-white/10">
+              <CardHeader className="space-y-3">
+                <CardTitle className="flex items-center gap-2 text-xl">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  Every app. One neon platform.
+                </CardTitle>
+                <CardDescription>
+                  Crafted alongside active EMS instructors so the official EmeritaClinical EMT logos lead learners through content that feels like the classroom, skills lab, and street.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex flex-wrap gap-3 text-xs font-semibold tracking-wide text-foreground">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+                    <Apple className="h-4 w-4" /> App Store · 2026
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+                    <Play className="h-4 w-4" /> Google Play · 2026
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+                    🔵 EmeritaClinical.com · Beta now
+                  </span>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-sm text-muted-foreground">
+                    All releases stay synced between the web platform, iOS, and Android so programs can approve one
+                    content set, then deploy everywhere in 2026.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-white/10">
+              <CardHeader className="space-y-2">
+                <CardTitle className="text-base uppercase tracking-[0.3em] text-muted-foreground">
+                  Flagship tracks
+                </CardTitle>
+                <CardDescription>New EmeritaClinical EMT logos showcased across the entire site.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center gap-6">
+                {flagshipApps.map((app) => (
+                  <LogoWordmark
+                    key={app.id}
+                    align="center"
+                    size="md"
+                    subtitle={(app.shortName || app.name).toUpperCase()}
+                    glow={app.status === "available"}
+                    className="min-w-[160px]"
+                  />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </div>
-
-        {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
       </section>
 
-      {/* What You Get - Clean Cards */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-blue-400">3 Apps. 1 Bundle.</p>
-            <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl md:text-6xl">
-              Everything you need to study smarter
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Designed to boost retention, critical thinking, and essential documentation skills.
+      <section id="ems-suite" className="container mx-auto space-y-8 px-4 md:px-6">
+        <div className="space-y-3 text-center">
+          <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">EMS apps suite</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Professional-grade tools. Honest $29 pricing.
+          </h2>
+          <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
+            Each EmeritaClinical™ app mirrors the WebConnect360 EMS lineup with the same curriculum, flashcards, and documentation labs—only now every purchase routes through our own Stripe links.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {purchaseReadyApps.map((app) => {
+            const statusStyle = statusStyles[app.status]
+            const waitlistHref = `/contact?type=waitlist&app=${app.id}`
+            return (
+              <Card key={app.id} className="glass-card flex h-full flex-col border-white/10">
+                <CardHeader className="space-y-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <CardTitle className="text-2xl">{app.name}</CardTitle>
+                      <CardDescription>{app.tagline}</CardDescription>
+                    </div>
+                    <span
+                      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${statusStyle?.className ?? "border-white/20 text-muted-foreground"}`}
+                    >
+                      {statusStyle?.label ?? "In roadmap"}
+                    </span>
+                  </div>
+                  {app.badge && <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{app.badge}</span>}
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col space-y-5">
+                  <p className="text-sm text-muted-foreground">{app.description}</p>
+                  <div className="space-y-2 text-sm">
+                    {app.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2 text-foreground/80">
+                        <Check className="h-4 w-4 text-primary" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-3">
+                    {app.price && (
+                      <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                        <ShoppingCart className="h-4 w-4 text-primary" />
+                        <span>${app.price} one-time · Stripe</span>
+                      </div>
+                    )}
+                    <div className="flex flex-wrap gap-3">
+                      {app.previewLink ? (
+                        <Button asChild variant="outline" className="border-white/20">
+                          <Link href={app.previewLink}>Request preview</Link>
+                        </Button>
+                      ) : (
+                        <Button variant="outline" className="border-white/20" disabled>
+                          Preview unavailable
+                        </Button>
+                      )}
+                      {app.stripeCheckoutUrl ? (
+                        <Button asChild className="flex-1 min-w-[140px]">
+                          <a href={app.stripeCheckoutUrl} target="_blank" rel="noopener noreferrer">
+                            Buy now{app.price ? ` · $${app.price}` : ""}
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button asChild className="flex-1 min-w-[140px]" variant="secondary">
+                          <Link href={waitlistHref}>Join waitlist</Link>
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+        {roadmapApps.length > 0 && (
+          <div className="rounded-2xl border border-white/10 p-6">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <Clock className="h-4 w-4 text-primary" />
+              <span className="uppercase tracking-[0.4em] text-xs">Roadmap</span>
+              {roadmapApps.map((app) => (
+                <span key={app.id} className="font-semibold text-foreground/80">
+                  {app.name} · {statusStyles[app.status]?.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <section className="container mx-auto space-y-10 px-4 md:px-6">
+        <div className="text-center space-y-3">
+          <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Pricing</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Professional grade. Honest pricing.</h2>
+          <p className="mx-auto max-w-2xl text-muted-foreground md:text-lg">
+            Every purchase runs through secure EmeritaClinical™ Stripe links—no subscriptions, just one-time downloads.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3 items-stretch">
+          {pricingTiers.map((tier) => (
+            <Card
+              key={tier.id}
+              className={`border-white/10 ${tier.id === "bundle" ? "border-red-500/40 shadow-[0_0_30px_rgba(248,113,113,0.2)]" : ""}`}
+            >
+              <CardHeader className="space-y-4 text-center">
+                {tier.badge && (
+                  <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-red-600 to-amber-500 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                    {tier.badge}
+                  </span>
+                )}
+                <CardTitle className="text-2xl">{tier.title}</CardTitle>
+                <div className="space-y-1">
+                  {tier.original && <p className="text-sm text-muted-foreground line-through">{tier.original}</p>}
+                  <p className="text-4xl font-bold text-foreground">{tier.price}</p>
+                  {tier.subtext && <p className="text-sm text-muted-foreground">{tier.subtext}</p>}
+                </div>
+                <p className="text-sm text-muted-foreground">{tier.description}</p>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="space-y-2 text-sm">
+                  {tier.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-foreground/80">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                {tier.cta && (
+                  <Button
+                    asChild
+                    className={tier.id === "bundle" ? "w-full bg-red-600 hover:bg-red-500" : "w-full"}
+                    variant={tier.cta.variant ?? "default"}
+                  >
+                    {tier.cta.href.startsWith("http") ? (
+                      <a href={tier.cta.href} target="_blank" rel="noopener noreferrer">
+                        {tier.cta.label}
+                      </a>
+                    ) : (
+                      <Link href={tier.cta.href}>{tier.cta.label}</Link>
+                    )}
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 md:px-6">
+        <Card className="border-white/10">
+          <CardContent className="grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">About EmeritaClinical™</p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Modern EMS training built by EMT Shaun Williamson.
+              </h2>
+              <p className="text-muted-foreground md:text-lg">
+                What began as a personal study tool during Shaun’s EMT-B training quickly evolved into a complete suite of apps designed to help EMS students and providers learn faster and perform with confidence. Our mission is simple: enhance EMS education—not replace it.
+              </p>
+              <p className="text-muted-foreground">
+                The growing EmeritaClinical™ suite includes study modules, medication companions, rhythm trainers, flashcard systems, documentation labs, and voice-note tools—all designed around real EMS workflows.
+              </p>
+            </div>
+            <div className="space-y-4 rounded-2xl border border-white/10 p-6">
+              <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Mission</p>
+              <p className="text-lg font-semibold">
+                EMS learning should be modern, intelligent, and accessible.
+              </p>
+              <p className="text-muted-foreground text-sm">
+                EmeritaClinical™ exists to support classroom learning, improve retention, and keep providers sharp on shift—with neon glass polish that matches the new logo system.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="container mx-auto px-4 md:px-6">
+        <div className="marquee-blur flex flex-wrap items-center justify-center gap-4 rounded-2xl px-6 py-4 text-sm text-muted-foreground">
+          {marqueeItems.map((item) => (
+            <span key={item} className="inline-flex items-center gap-2 text-foreground/80">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 md:px-6">
+        <div className="mb-10 space-y-4 text-center">
+          <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Designed with EMS educators</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Glass-card storytelling with enterprise depth
+          </h2>
+          <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
+            Every section elevates EMS-specific storytelling—skills matrices, protocol refreshers, and cohort dashboards presented in a clear, high-contrast layout built for night crews and classroom displays alike.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {highlightPillars.map(({ title, body, points, Icon }) => (
+            <Card key={title} className="border-white/10">
+              <CardHeader className="space-y-4">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="space-y-2">
+                  <CardTitle className="text-2xl">{title}</CardTitle>
+                  <CardDescription>{body}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {points.map((point) => (
+                  <div key={point} className="flex items-center gap-2 text-sm text-foreground">
+                    <Check className="h-4 w-4 text-primary" />
+                    <span>{point}</span>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto space-y-8 px-4 md:px-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Platform lineup</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">All apps live on this platform first</h2>
+            <p className="max-w-2xl text-muted-foreground">
+              Whether it&apos;s the EMT core curriculum, MedicationsX reference, or RhythmLab for ECG mastery, everything is
+              orchestrated inside the neon interface before it arrives on the stores in 2026.
             </p>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* EMT-B Core */}
-            <Card className="group relative overflow-hidden border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 transition-all hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
-              <CardHeader className="relative">
-                <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-lg overflow-hidden bg-white">
-                  <Image 
-                    src="/images/EmeritaclinicalEMT-b.jpeg" 
-                    alt="EMT-B Core Logo" 
-                    width={64} 
-                    height={64}
-                    className="object-contain"
+          <Button asChild variant="outline" className="self-start border-white/30">
+            <Link href="/suite">See the detailed suite overview</Link>
+          </Button>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {orderedApps.map((app) => (
+            <Card key={app.id} className="border-white/10">
+              <CardHeader className="space-y-4">
+                <div className="flex items-center justify-between gap-4">
+                  <LogoWordmark
+                    align="left"
+                    size="md"
+                    subtitle={(app.shortName || app.name).toUpperCase()}
+                    glow={app.status === "available"}
                   />
+                  <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${statusStyles[app.status as AppStatus]?.className}`}>
+                    {statusStyles[app.status as AppStatus]?.label ?? "In development"}
+                  </span>
                 </div>
-                <CardTitle className="text-2xl font-bold text-white">EMT-B Core</CardTitle>
-                <p className="text-slate-400">Complete textbook companion with 45 chapters and 675+ built-in flashcards.</p>
+                <div className="space-y-2">
+                  <CardTitle>{app.name}</CardTitle>
+                  <CardDescription>{app.description}</CardDescription>
+                </div>
               </CardHeader>
-              <CardContent className="relative">
-                <ul className="space-y-3 text-sm text-slate-300">
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" />
-                    <span>45 chapters across 14 modules</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" />
-                    <span>675+ flashcards (15 per chapter)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" />
-                    <span>Study notes + practice questions</span>
-                  </li>
-                </ul>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  {app.features.slice(0, 3).map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
+                    <Apple className="h-3.5 w-3.5" /> 2026
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
+                    <Play className="h-3.5 w-3.5" /> 2026
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
+                    🔵 Platform first
+                  </span>
+                </div>
               </CardContent>
             </Card>
-
-            {/* ChapterFlashEMT */}
-            <Card className="group relative overflow-hidden border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 transition-all hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
-              <CardHeader className="relative">
-                <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-lg overflow-hidden bg-white">
-                  <Image 
-                    src="/images/EmeritaClinicalChapterflashlogo.jpeg" 
-                    alt="ChapterFlashEMT Logo" 
-                    width={64} 
-                    height={64}
-                    className="object-contain"
-                  />
-                </div>
-                <CardTitle className="text-2xl font-bold text-white">ChapterFlashEMT</CardTitle>
-                <p className="text-slate-400">Spaced-repetition system with 700+ prompts across all 45 chapters.</p>
-              </CardHeader>
-              <CardContent className="relative">
-                <ul className="space-y-3 text-sm text-slate-300">
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-400" />
-                    <span>AI-powered spaced repetition</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-400" />
-                    <span>700+ flashcards (all 45 chapters)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-400" />
-                    <span>4 study modes + progress tracking</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* PCR Report Sim */}
-            <Card className="group relative overflow-hidden border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 transition-all hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
-              <CardHeader className="relative">
-                <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-lg overflow-hidden bg-white">
-                  <Image 
-                    src="/images/EmeritaClinicalPCRSimlogo.jpeg" 
-                    alt="PCR Report Sim Logo" 
-                    width={64} 
-                    height={64}
-                    className="object-contain"
-                  />
-                </div>
-                <CardTitle className="text-2xl font-bold text-white">PCR Report Sim</CardTitle>
-                <p className="text-slate-400">Practice Patient Care Reports with 50+ realistic scenarios and AI scoring.</p>
-              </CardHeader>
-              <CardContent className="relative">
-                <ul className="space-y-3 text-sm text-slate-300">
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
-                    <span>50+ realistic scenarios</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
-                    <span>SOAP/CHART formats + AI scoring</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
-                    <span>Hand-off trainer with voice recording</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Pricing Spotlight - High Energy */}
-      <section className="relative overflow-hidden px-4 py-20 md:py-28">
-        {/* Background glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-red-950/20 to-slate-950"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-500/20 rounded-full blur-3xl"></div>
-
-        <div className="container relative z-10 mx-auto max-w-4xl text-center">
-          <div className="mb-12">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-red-400">Holiday Special</p>
-            <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl md:text-6xl">
-              3 apps. $36.75 total.
-            </h2>
-            <p className="text-xl text-slate-400">Use code HOLIDAY25 at checkout</p>
-          </div>
-
-          <Card className="relative overflow-hidden border-red-500/40 bg-gradient-to-b from-slate-900 to-slate-950 shadow-[0_0_60px_rgba(239,68,68,0.4)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-amber-500/10"></div>
-            
-            <CardContent className="relative p-8 md:p-12">
-              {/* Holiday Badge */}
-              <div className="mb-6 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-red-600 to-amber-500 px-6 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg">
-                <Sparkles className="mr-2 h-4 w-4" />
-                25% OFF HOLIDAY SPECIAL
-              </div>
-
-              {/* Pricing */}
-              <div className="mb-8">
-                <p className="mb-2 text-lg text-slate-500 line-through">$49.00</p>
-                <p className="mb-2 text-7xl font-black text-white md:text-8xl">$36.75</p>
-                <p className="text-lg text-slate-400">
-                  one-time payment • use code <span className="font-mono font-bold text-yellow-300">HOLIDAY25</span>
-                </p>
-              </div>
-
-              {/* Features */}
-              <div className="mb-8 space-y-3">
-                <p className="flex items-center justify-center gap-3 text-lg text-white">
-                  <Check className="h-5 w-5 text-green-400" />
-                  All 3 premium apps included
-                </p>
-                <p className="flex items-center justify-center gap-3 text-lg text-white">
-                  <Check className="h-5 w-5 text-green-400" />
-                  Instant Stripe delivery
-                </p>
-                <p className="flex items-center justify-center gap-3 text-lg text-white">
-                  <Check className="h-5 w-5 text-green-400" />
-                  Lifetime access, all future updates
-                </p>
-              </div>
-
-              {/* CTA */}
-              <a href="https://buy.stripe.com/5kA6s03xJ0Mv0Ve4gj" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="group w-full bg-gradient-to-r from-red-600 to-red-500 px-8 py-7 text-xl font-bold text-white shadow-2xl transition-all hover:scale-105 hover:from-red-500 hover:to-red-400 md:w-auto md:px-16">
-                  <Zap className="mr-2 h-6 w-6 transition-transform group-hover:scale-110" />
-                  Get Full Bundle – $36.75
-                </Button>
-              </a>
-
-              <p className="mt-6 text-sm text-slate-500">
-                Or buy individual apps for $29 each on the{" "}
-                <Link href="/apps" className="text-blue-400 underline hover:text-blue-300">
-                  apps page
-                </Link>
+      <section className="container mx-auto px-4 md:px-6">
+        <Card className="border-white/10">
+          <CardContent className="grid gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Availability · 2026</p>
+              <h3 className="text-3xl font-semibold">
+                Every module ships simultaneously to EmeritaClinical.com, the App Store, and Google Play.
+              </h3>
+              <p className="text-muted-foreground">
+                Programs can pilot the neon platform today, then flip the switch for learners once the stores approve the
+                builds. All data, cohorts, and scenarios stay synced.
               </p>
-            </CardContent>
-          </Card>
-        </div>
+              <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
+                  <Users className="h-4 w-4 text-primary" /> Student + program roles
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1">
+                  <Sparkles className="h-4 w-4 text-secondary" /> Neon/glass UI preserved everywhere
+                </span>
+              </div>
+            </div>
+            <div className="space-y-4 rounded-2xl border border-white/10 p-6">
+              <div className="flex items-center gap-4">
+                <div className="rounded-full bg-primary/15 p-3 text-primary">
+                  <Apple className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-wide text-muted-foreground">App Store</p>
+                  <p className="text-lg font-semibold">Q1 2026 submission window</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="rounded-full bg-secondary/15 p-3 text-secondary">
+                  <Play className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-wide text-muted-foreground">Google Play</p>
+                  <p className="text-lg font-semibold">Q1 2026 beta tracks</p>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-white/5 p-4 text-sm text-muted-foreground">
+                EmeritaClinical.com hosts the EMT-B Core experience today so programs can run guided demos and faculty
+                reviews while the remaining suite tracks finalize for the coordinated 2026 App Store and Google Play launches.
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
-      {/* Final CTA - Clean & Confident */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="mb-6 text-4xl font-black text-white sm:text-5xl md:text-6xl">
-            Study smarter. Build skills. Pass your NREMT.
-          </h2>
-          <p className="mb-10 text-xl text-slate-400 md:text-2xl">
-            Everything you need in one bundle for $36.75
-          </p>
-          <a href="https://buy.stripe.com/5kA6s03xJ0Mv0Ve4gj" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-blue-600 px-12 py-7 text-xl font-bold text-white shadow-2xl transition-all hover:scale-105 hover:bg-blue-500">
-              Get Instant Access – $36.75
-            </Button>
-          </a>
-          <p className="mt-6 text-sm text-slate-500">
-            Questions?{" "}
-            <Link href="/contact" className="text-blue-400 underline hover:text-blue-300">
-              Contact us
-            </Link>
-          </p>
-        </div>
+      <section className="container mx-auto px-4 md:px-6">
+        <Card className="border-white/10">
+          <CardContent className="flex flex-col gap-6 p-8 text-center">
+            <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Take action</p>
+            <h3 className="text-3xl font-bold sm:text-4xl">
+              Ready to put the neon glass platform in front of your cohort?
+            </h3>
+            <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
+              Request a guided tour, secure branded onboarding with the new EMT logos, and lock in App Store + Google
+              Play launch notifications for 2026.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button asChild size="lg" className="px-10 text-base">
+                <Link href="/contact">Book a walkthrough</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-white/30 px-10 text-base">
+                <Link href="/suite">Download the suite brief</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </section>
       </div>
-    </>
   )
 }
