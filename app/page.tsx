@@ -5,11 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { LogoWordmark } from "@/components/logo-wordmark"
 import {
-  Apple,
   ArrowUpRight,
   Check,
   Clock,
-  Play,
   ShoppingCart,
   Sparkles,
 } from "lucide-react"
@@ -49,13 +47,13 @@ const marqueeItems = [
   "Adaptive flashcards",
   "Voice-first documentation",
   "Real-time cohort analytics",
-  "App + mobile parity in 2026",
+  "Direct web-based access",
 ]
 
 const heroStats = [
   { value: "$29", label: "One-time per app" },
   { value: "4", label: "Enterprise-grade platforms" },
-  { value: "2026", label: "AEMT + Paramedic roadmap" },
+  { value: "Web", label: "Available now" },
 ]
 
 const pricingTiers = [
@@ -92,11 +90,11 @@ const pricingTiers = [
 
 const statusStyles: Record<AppStatus, { label: string; className: string }> = {
   available: {
-    label: "Available in platform beta",
+    label: "Available now",
     className: "bg-emerald-500/10 text-emerald-200 border-emerald-500/30",
   },
   coming_soon: {
-    label: "Arriving with 2026 releases",
+    label: "Coming soon",
     className: "bg-amber-400/10 text-amber-100 border-amber-400/30",
   },
   in_development: {
@@ -160,21 +158,9 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-3 text-xs font-semibold tracking-wide text-foreground">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                    <Apple className="h-4 w-4" /> App Store · 2026
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                    <Play className="h-4 w-4" /> Google Play · 2026
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-                    🔵 EmeritaClinical.com · Beta now
-                  </span>
-                </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="text-sm text-muted-foreground">
-                    All releases stay synced between the web platform, iOS, and Android so programs can approve one
-                    content set, then deploy everywhere in 2026.
+                    All platforms are available exclusively through EmeritaClinical.com—no app stores, no waiting. Direct access to professional EMS education tools.
                   </p>
                 </div>
               </CardContent>
@@ -430,31 +416,15 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto px-4 md:px-6">
-        <Card className="border-white/10">
-          <CardContent className="grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">About EmeritaClinical™</p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Professional Learning Platforms for EMS Education
-              </h2>
-              <p className="text-muted-foreground md:text-lg">
-                EmeritaClinical™ delivers enterprise-grade educational technology designed specifically for EMS programs, instructors, and students. Our platforms integrate seamlessly with accredited training programs to enhance learning outcomes and prepare students for certification success.
-              </p>
-              <p className="text-muted-foreground">
-                Built in collaboration with experienced EMS educators, our suite includes adaptive learning modules, competency-based assessments, clinical documentation practice, and analytics tools—all designed to support modern EMS education standards.
-              </p>
-            </div>
-            <div className="space-y-4 rounded-2xl border border-white/10 p-6">
-              <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Mission</p>
-              <p className="text-lg font-semibold">
-                EMS learning should be modern, intelligent, and accessible.
-              </p>
-              <p className="text-muted-foreground text-sm">
-                EmeritaClinical™ exists to support classroom learning, improve retention, and keep providers sharp on shift—with neon glass polish that matches the new logo system.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="mb-10 space-y-4 text-center">
+          <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground">About EmeritaClinical™</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Professional EMS Learning Platforms
+          </h2>
+          <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
+            The apps are only available here—no App Store, no Google Play. Direct access to enterprise-grade EMS education tools.
+          </p>
+        </div>
       </section>
 
       <section className="container mx-auto px-4 md:px-6">
