@@ -2,11 +2,11 @@ import Link from "next/link"
 
 const navigation = {
   product: [
-    { name: "Suite", href: "/suite" },
-    { name: "Suite", href: "/suite" },
-    { name: "Apps", href: "/apps" },
-    { name: "EMT-B App", href: "/emt-b-app" },
+    { name: "Platform Suite", href: "/suite" },
+    { name: "All Apps", href: "/apps" },
+    { name: "EMT-B Core", href: "/emt-b-app" },
     { name: "For Programs", href: "/for-programs" },
+    { name: "Enterprise Services", href: "/enterprise-services" },
   ],
   company: [
     { name: "About", href: "/about" },

@@ -10,20 +10,20 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: "EmeritaClinical™ – Modern EMT, AEMT, and Paramedic Learning Tools",
+  title: "EmeritaClinical™ – Enterprise Platforms for Clinical Education & Research",
   description:
-    "EmeritaClinical™ is a modern EMS learning platform created by EMS student Shaun Williamson with study chapters, flashcards, scenarios, medication tools, rhythm training, documentation labs, and more.",
+    "EmeritaClinical™ delivers professional-grade learning platforms for EMS education. Enterprise solutions for EMT, AEMT, and Paramedic training with competency-based modules, clinical simulation tools, and analytics dashboards.",
   keywords: [
-    "EMT study app",
-    "EMT-B training",
-    "AEMT app",
-    "Paramedic learning tools",
-    "EMS flashcards",
-    "EMS pharmacology app",
-    "ECG rhythm practice",
     "EMS education platform",
-    "ePCR training",
-    "EMS voice notes",
+    "EMT-B training platform",
+    "AEMT learning system",
+    "Paramedic education software",
+    "Clinical education technology",
+    "EMS competency assessment",
+    "Patient care documentation training",
+    "EMS research management",
+    "Enterprise EMS training",
+    "Clinical simulation tools",
   ],
 };
 
