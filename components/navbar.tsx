@@ -1,17 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Menu, X, Zap, Network } from "lucide-react"
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Suite", href: "/suite" },
-  { name: "Enterprise Services", href: "/enterprise-services" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "THE RIG", href: "/the-rig" },
+  { name: "ROOT", href: "/root" },
 ]
 
 export function Navbar() {
@@ -21,15 +18,11 @@ export function Navbar() {
     <header className="glass-nav sticky top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-3" aria-label="EmeritaClinical home">
-            <Image 
-              src="/images/EmeritaClinicalLogo.jpeg" 
-              alt="EmeritaClinical" 
-              width={400}
-              height={107}
-              className="h-24 w-auto"
-              priority
-            />
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" aria-label="Home">
+            <div className="flex items-center gap-2">
+              <Zap className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold">RIG + ROOT</span>
+            </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -57,26 +50,30 @@ export function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button asChild>
-            <Link href="/contact">Get Started</Link>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-4">
+          <Button asChild variant="outline" size="sm">
+            <Link href="/the-rig">
+              <Zap className="mr-2 h-4 w-4" />
+              THE RIG
+            </Link>
+          </Button>
+          <Button asChild variant="secondary" size="sm">
+            <Link href="/root">
+              <Network className="mr-2 h-4 w-4" />
+              ROOT
+            </Link>
           </Button>
         </div>
       </nav>
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden" role="dialog" aria-modal="true">
-          <div className="fixed inset-0 z-50"></div>
-          <div className="glass-card fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm">
+          <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}></div>
+          <div className="glass-card fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm border-l">
             <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)} aria-label="EmeritaClinical home">
-                <Image 
-                  src="/images/EmeritaClinicalLogo.jpeg" 
-                  alt="EmeritaClinical" 
-                  width={220}
-                  height={59}
-                  className="h-14 w-auto"
-                />
+              <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)} aria-label="Home">
+                <Zap className="h-6 w-6 text-primary" />
+                <span className="text-xl font-bold">RIG + ROOT</span>
               </Link>
               <button
                 type="button"
@@ -101,10 +98,17 @@ export function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <div className="py-6">
+                <div className="space-y-3 py-6">
                   <Button asChild className="w-full">
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                      Get Started
+                    <Link href="/the-rig" onClick={() => setMobileMenuOpen(false)}>
+                      <Zap className="mr-2 h-4 w-4" />
+                      Explore THE RIG
+                    </Link>
+                  </Button>
+                  <Button asChild variant="secondary" className="w-full">
+                    <Link href="/root" onClick={() => setMobileMenuOpen(false)}>
+                      <Network className="mr-2 h-4 w-4" />
+                      Explore ROOT
                     </Link>
                   </Button>
                 </div>
