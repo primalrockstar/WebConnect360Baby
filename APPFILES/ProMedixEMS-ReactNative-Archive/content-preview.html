@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProMedix EMS - Content Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            color: #bfdbfe;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tab-button.active,
+        .tab-button:hover {
+            background: #dc2626;
+            border-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .content-section {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .chapter-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .chapter-number {
+            color: #fbbf24;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .chapter-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 8px 0 4px 0;
+        }
+        
+        .chapter-desc {
+            font-size: 14px;
+            color: #bfdbfe;
+            line-height: 1.4;
+        }
+        
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .quiz-question {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .quiz-option.correct {
+            background: #10b981;
+            border-color: #10b981;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .calculator-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .calculator-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #bfdbfe;
+        }
+        
+        .input-group select,
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+        }
+        
+        .calc-button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .calc-result {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #10b981;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .flashcard {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .flashcard.flipped {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+        }
+        
+        .flashcard-front,
+        .flashcard-back {
+            text-align: center;
+        }
+        
+        .flashcard-back {
+            display: none;
+        }
+        
+        .flashcard.flipped .flashcard-front {
+            display: none;
+        }
+        
+        .flashcard.flipped .flashcard-back {
+            display: block;
+        }
+        
+        .nasemso-reference {
+            background: rgba(251, 191, 36, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #fbbf24;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #bfdbfe;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #10b981, #34d399);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚑 ProMedix EMS</h1>
+        <p>Professional EMT-B Training Platform - Content Preview</p>
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%"></div>
+        </div>
+        <p style="font-size: 12px; margin-top: 5px;">Platform Progress: 75% Complete</p>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="tab-button active" onclick="showTab('chapters')">📚 Chapters</button>
+        <button class="tab-button" onclick="showTab('quiz')">🎯 Quiz</button>
+        <button class="tab-button" onclick="showTab('calculators')">🧮 Calculators</button>
+        <button class="tab-button" onclick="showTab('flashcards')">📋 Flashcards</button>
+    </div>
+
+    <!-- Chapters Section -->
+    <div id="chapters" class="content-section active">
+        <div class="chapter-grid">
+            <!-- MODULE 1: FOUNDATIONS OF EMS PRACTICE -->
+            <div class="chapter-card" style="background: linear-gradient(135deg, #1e40af, #3b82f6); border: 2px solid #60a5fa;">
+                <div class="chapter-number" style="color: #fbbf24; font-weight: bold;">Module 1</div>
+                <div class="chapter-title" style="color: white; font-weight: bold;">Foundations of EMS Practice</div>
+                <div class="chapter-desc" style="color: #e0e7ff;">Broad orientation topics grouped so learners see system, safety, legal, and communications content together.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 1</div>
+                <div class="chapter-title">EMS Ecosystem Essentials</div>
+                <div class="chapter-desc">EMS systems organization, roles, and EMT scope of practice. NASEMSO 2022 enhanced.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 2</div>
+                <div class="chapter-title">Safety Protocols for Responders</div>
+                <div class="chapter-desc">Personal safety, stress management, and wellness protocols for EMTs.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 3</div>
+                <div class="chapter-title">Legal Frameworks in Emergency Care</div>
+                <div class="chapter-desc">Consent, confidentiality, advance directives, and ethical decision making.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 4</div>
+                <div class="chapter-title">Documentation & Field Reporting</div>
+                <div class="chapter-desc">Radio protocols, patient care reports, and professional communication.</div>
+            </div>
+
+            <!-- MODULE 2: CLINICAL FOUNDATIONS -->
+            <div class="chapter-card" style="background: linear-gradient(135deg, #10b981, #34d399); border: 2px solid #6ee7b7;">
+                <div class="chapter-number" style="color: #fbbf24; font-weight: bold;">Module 2</div>
+                <div class="chapter-title" style="color: white; font-weight: bold;">Clinical Foundations</div>
+                <div class="chapter-desc" style="color: #e0f2f1;">Core science and movement skills; additional chapter (5) carries interprofessional competencies that bridge Module 1 and assessment content.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 5</div>
+                <div class="chapter-title">Essential Terminology for Responders</div>
+                <div class="chapter-desc">Medical terminology, anatomy, and body system interactions.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 6</div>
+                <div class="chapter-title">Body Systems for Emergency Care</div>
+                <div class="chapter-desc">Age-related changes from infancy through geriatric care.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 7</div>
+                <div class="chapter-title">Lifespan Considerations in EMS</div>
+                <div class="chapter-desc">Disease processes, cellular function, and body system failures.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 8</div>
+                <div class="chapter-title">Safe Transport Techniques</div>
+                <div class="chapter-desc">Drug actions, EMT medication administration, and contraindications.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 9</div>
+                <div class="chapter-title">Healthcare Team Dynamics</div>
+                <div class="chapter-desc">Interprofessional competencies and team collaboration in emergency care.</div>
+            </div>
+
+            <!-- MODULE 3: PATIENT ASSESSMENT MASTERY -->
+            <div class="chapter-card" style="background: linear-gradient(135deg, #7c3aed, #a855f7); border: 2px solid #c084fc;">
+                <div class="chapter-number" style="color: #fbbf24; font-weight: bold;">Module 3</div>
+                <div class="chapter-title" style="color: white; font-weight: bold;">Patient Assessment Mastery</div>
+                <div class="chapter-desc" style="color: #ede9fe;">Dedicated full-length module for comprehensive assessment; typically taught over several lab sessions.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 10</div>
+                <div class="chapter-title">Comprehensive Patient Assessment</div>
+                <div class="chapter-desc">Scene safety, patient assessment, critical decision making, and systematic evaluation protocols.</div>
+            </div>
+
+            <!-- MODULE 4: AIRWAY & VENTILATORY MANAGEMENT -->
+            <div class="chapter-card" style="background: linear-gradient(135deg, #dc2626, #ef4444); border: 2px solid #fca5a5;">
+                <div class="chapter-number" style="color: #fbbf24; font-weight: bold;">Module 4</div>
+                <div class="chapter-title" style="color: white; font-weight: bold;">Airway & Ventilatory Management</div>
+                <div class="chapter-desc" style="color: #fee2e2;">Airway mastery is a standalone block with extensive lab practice; keeping a single focus clarifies priorities.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 11</div>
+                <div class="chapter-title">Airway Management Techniques</div>
+                <div class="chapter-desc">Basic and advanced airway techniques for all age groups with ventilatory support.</div>
+            </div>
+
+            <!-- Continue with remaining modules... -->
+            <div class="chapter-card" style="background: linear-gradient(135deg, #f59e0b, #f97316); border: 2px solid #fed7aa;">
+                <div class="chapter-number" style="color: #fbbf24; font-weight: bold;">Module 5</div>
+                <div class="chapter-title" style="color: white; font-weight: bold;">Pharmacology for EMT-B</div>
+                <div class="chapter-desc" style="color: #fef3c7;">Medication administration scope for EMT-B is concentrated into one detailed unit.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 12</div>
+                <div class="chapter-title">EMT-B Medication Administration</div>
+                <div class="chapter-desc">Drug actions, medication protocols, and contraindications for EMT-B scope.</div>
+            </div>
+        </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 4</div>
+                <div class="chapter-title">Communications and Documentation</div>
+                <div class="chapter-desc">Radio protocols, patient care reports, and professional communication.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 5</div>
+                <div class="chapter-title">Human Body Systems</div>
+                <div class="chapter-desc">Anatomy, physiology, and body system interactions.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 6</div>
+                <div class="chapter-title">Life Span Development</div>
+                <div class="chapter-desc">Age-related changes from infancy through geriatric care.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 7</div>
+                <div class="chapter-title">Principles of Pathophysiology</div>
+                <div class="chapter-desc">Disease processes, cellular function, and body system failures.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 8</div>
+                <div class="chapter-title">Principles of Pharmacology</div>
+                <div class="chapter-desc">Drug actions, EMT medication administration, and contraindications.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 9</div>
+                <div class="chapter-title">Airway Management</div>
+                <div class="chapter-desc">Basic and advanced airway techniques for all age groups.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 10</div>
+                <div class="chapter-title">Scene Size-Up and Primary Assessment</div>
+                <div class="chapter-desc">Scene safety, patient assessment, and critical decision making.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 11</div>
+                <div class="chapter-title">Patient Assessment</div>
+                <div class="chapter-desc">History taking, secondary assessment, and reassessment procedures.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 12</div>
+                <div class="chapter-title">Shock and Resuscitation</div>
+                <div class="chapter-desc">Perfusion, shock pathophysiology, and resuscitation techniques.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 13</div>
+                <div class="chapter-title">BLS Resuscitation</div>
+                <div class="chapter-desc">CPR, AED use, and basic life support protocols.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 14</div>
+                <div class="chapter-title">Medical Overview</div>
+                <div class="chapter-desc">Medical emergencies assessment and general treatment principles.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 15</div>
+                <div class="chapter-title">Respiratory Emergencies</div>
+                <div class="chapter-desc">Breathing disorders, asthma, COPD, and respiratory treatments.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 16</div>
+                <div class="chapter-title">Cardiovascular Emergencies</div>
+                <div class="chapter-desc">Heart conditions, chest pain, and cardiac arrest management.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 17</div>
+                <div class="chapter-title">Neurologic Emergencies</div>
+                <div class="chapter-desc">Stroke, seizures, altered mental status, and neurologic assessment.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 18</div>
+                <div class="chapter-title">Gastrointestinal and Urologic Emergencies</div>
+                <div class="chapter-desc">Abdominal pain, GI bleeding, and urinary system disorders.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 19</div>
+                <div class="chapter-title">Endocrine and Hematologic Emergencies</div>
+                <div class="chapter-desc">Diabetes, blood disorders, and endocrine system failures.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 20</div>
+                <div class="chapter-title">Immunologic Emergencies</div>
+                <div class="chapter-desc">Allergic reactions, anaphylaxis, and immune system disorders.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 21</div>
+                <div class="chapter-title">Toxicology</div>
+                <div class="chapter-desc">Poisoning, overdoses, and substance abuse emergencies.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 22</div>
+                <div class="chapter-title">Psychiatric Emergencies</div>
+                <div class="chapter-desc">Mental health crises, suicide risk, and behavioral emergencies.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 23</div>
+                <div class="chapter-title">Gynecologic Emergencies</div>
+                <div class="chapter-desc">Women's health issues and reproductive system emergencies.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 24</div>
+                <div class="chapter-title">Trauma Overview</div>
+                <div class="chapter-desc">Trauma systems, kinematics, and injury mechanisms.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 25</div>
+                <div class="chapter-title">Bleeding</div>
+                <div class="chapter-desc">Hemorrhage control, wound care, and bleeding management.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 26</div>
+                <div class="chapter-title">Soft Tissue Injuries</div>
+                <div class="chapter-desc">Wound types, dressings, bandaging, and burn treatment.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 27</div>
+                <div class="chapter-title">Face and Neck Injuries</div>
+                <div class="chapter-desc">Facial trauma, neck injuries, and airway considerations.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 28</div>
+                <div class="chapter-title">Head and Spine Injuries</div>
+                <div class="chapter-desc">Traumatic brain injury, spinal trauma, and immobilization.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 29</div>
+                <div class="chapter-title">Chest Injuries</div>
+                <div class="chapter-desc">Thoracic trauma, pneumothorax, and chest wall injuries.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 30</div>
+                <div class="chapter-title">Abdominal and Genitourinary Injuries</div>
+                <div class="chapter-desc">Abdominal trauma and genitourinary system injuries.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 31</div>
+                <div class="chapter-title">Orthopedic Injuries</div>
+                <div class="chapter-desc">Fractures, dislocations, sprains, and splinting techniques.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 32</div>
+                <div class="chapter-title">Environmental Emergencies</div>
+                <div class="chapter-desc">Heat/cold emergencies, drowning, and environmental hazards.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 33</div>
+                <div class="chapter-title">Obstetrics and Neonatal Care</div>
+                <div class="chapter-desc">Emergency childbirth, prenatal care, and newborn assessment.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 34</div>
+                <div class="chapter-title">Pediatric Emergencies</div>
+                <div class="chapter-desc">Pediatric assessment, common pediatric emergencies, and family care.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 35</div>
+                <div class="chapter-title">Geriatric Emergencies</div>
+                <div class="chapter-desc">Age-related changes, polypharmacy, and geriatric assessment.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 36</div>
+                <div class="chapter-title">Patients with Special Challenges</div>
+                <div class="chapter-desc">Disabilities, chronic conditions, and special healthcare needs.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 37</div>
+                <div class="chapter-title">Transport Operations</div>
+                <div class="chapter-desc">Vehicle operations, patient positioning, and transport decisions.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 38</div>
+                <div class="chapter-title">Vehicle Extrication and Special Rescue</div>
+                <div class="chapter-desc">Rescue operations, vehicle stabilization, and patient extraction.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 39</div>
+                <div class="chapter-title">Incident Management</div>
+                <div class="chapter-desc">ICS, mass casualty incidents, and disaster response.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 40</div>
+                <div class="chapter-title">Terrorism Response and Disaster Management</div>
+                <div class="chapter-desc">WMD, bioterrorism, and emergency response protocols.</div>
+            </div>
+            
+            <div class="chapter-card">
+                <div class="chapter-number">Chapter 41</div>
+                <div class="chapter-title">EMS Operations</div>
+                <div class="chapter-desc">Quality improvement, research, and professional development.</div>
+            </div>
+            
+            <!-- Bonus Chapters -->
+            <div class="chapter-card" style="border: 2px solid #fbbf24;">
+                <div class="chapter-number" style="color: #fbbf24;">Bonus 1</div>
+                <div class="chapter-title">Advanced Airway Management</div>
+                <div class="chapter-desc">Advanced airway techniques and equipment for EMT enhancement.</div>
+            </div>
+            
+            <div class="chapter-card" style="border: 2px solid #fbbf24;">
+                <div class="chapter-number" style="color: #fbbf24;">Bonus 2</div>
+                <div class="chapter-title">Advanced Patient Assessment</div>
+                <div class="chapter-desc">Enhanced assessment techniques and clinical decision making.</div>
+            </div>
+            
+            <div class="chapter-card" style="border: 2px solid #fbbf24;">
+                <div class="chapter-number" style="color: #fbbf24;">Bonus 3</div>
+                <div class="chapter-title">Pharmacology Enhancement</div>
+                <div class="chapter-desc">Extended medication protocols and advanced drug knowledge.</div>
+            </div>
+            
+            <div class="chapter-card" style="border: 2px solid #fbbf24;">
+                <div class="chapter-number" style="color: #fbbf24;">Bonus 4</div>
+                <div class="chapter-title">Critical Care Fundamentals</div>
+                <div class="chapter-desc">Bridging EMT to advanced practice with critical care basics.</div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; color: #bfdbfe; margin-top: 20px;">
+            📊 <strong>Real ProMedix EMS Curriculum Structure</strong><br>
+            14 Professional Modules • 41+ Core Chapters • NASEMSO 2022 Enhanced<br>
+            <small style="color: #94a3b8;">Based on actual STUDY_NOTES_MODULE_MAP.md from production repository</small>
+        </p>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz" class="content-section">
+        <div class="quiz-container">
+            <div class="quiz-question">
+                🎯 <strong>NASEMSO 2022 Enhanced Quiz:</strong><br><br>
+                Which of the following is the MOST appropriate first intervention for a patient presenting with severe respiratory distress and suspected anaphylaxis?
+            </div>
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectAnswer(this, false)">A) Establish IV access and administer normal saline</div>
+                <div class="quiz-option" onclick="selectAnswer(this, false)">B) Apply high-flow oxygen via non-rebreather mask</div>
+                <div class="quiz-option" onclick="selectAnswer(this, true)">C) Administer epinephrine auto-injector (if available)</div>
+                <div class="quiz-option" onclick="selectAnswer(this, false)">D) Perform immediate endotracheal intubation</div>
+            </div>
+            <div class="nasemso-reference">
+                <strong>NASEMSO 2022 Reference:</strong> National Model EMS Clinical Guidelines - Anaphylaxis Protocol v2022.1
+            </div>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">
+                🩺 <strong>Patient Assessment:</strong><br><br>
+                According to NASEMSO guidelines, what is the recommended frequency for reassessing vital signs in a stable patient during transport?
+            </div>
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="selectAnswer(this, false)">A) Every 2 minutes</div>
+                <div class="quiz-option" onclick="selectAnswer(this, true)">B) Every 5 minutes</div>
+                <div class="quiz-option" onclick="selectAnswer(this, false)">C) Every 10 minutes</div>
+                <div class="quiz-option" onclick="selectAnswer(this, false)">D) Only if condition changes</div>
+            </div>
+            <div class="nasemso-reference">
+                <strong>NASEMSO 2022 Reference:</strong> Patient Assessment and Care Guidelines - Monitoring Standards
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculators Section -->
+    <div id="calculators" class="content-section">
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <div class="calculator-title">🤱 APGAR Score Calculator</div>
+                
+                <div class="input-group">
+                    <label>Appearance (Color)</label>
+                    <select id="apgar-appearance">
+                        <option value="0">Blue/Pale</option>
+                        <option value="1">Pink body, blue extremities</option>
+                        <option value="2">Completely pink</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Pulse (Heart Rate)</label>
+                    <select id="apgar-pulse">
+                        <option value="0">Absent</option>
+                        <option value="1">Below 100 bpm</option>
+                        <option value="2">Above 100 bpm</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Grimace (Reflex Irritability)</label>
+                    <select id="apgar-grimace">
+                        <option value="0">No response</option>
+                        <option value="1">Grimace</option>
+                        <option value="2">Cry</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Activity (Muscle Tone)</label>
+                    <select id="apgar-activity">
+                        <option value="0">Limp</option>
+                        <option value="1">Some flexion</option>
+                        <option value="2">Active motion</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Respiratory Effort</label>
+                    <select id="apgar-respiratory">
+                        <option value="0">Absent</option>
+                        <option value="1">Slow, irregular</option>
+                        <option value="2">Good crying</option>
+                    </select>
+                </div>
+                
+                <button class="calc-button" onclick="calculateAPGAR()">Calculate APGAR Score</button>
+                <div id="apgar-result" class="calc-result" style="display: none;"></div>
+                
+                <div class="nasemso-reference">
+                    <strong>NASEMSO 2022:</strong> Newborn assessment tool for determining immediate need for resuscitation
+                </div>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calculator-title">🧠 AVPU Scale Assessment</div>
+                
+                <div class="input-group">
+                    <label>Patient Response Level</label>
+                    <select id="avpu-level">
+                        <option value="alert">Alert - Responsive to normal voice</option>
+                        <option value="verbal">Verbal - Responds to verbal stimuli</option>
+                        <option value="pain">Pain - Responds only to painful stimuli</option>
+                        <option value="unresponsive">Unresponsive - No response to stimuli</option>
+                    </select>
+                </div>
+                
+                <button class="calc-button" onclick="assessAVPU()">Assess AVPU Level</button>
+                <div id="avpu-result" class="calc-result" style="display: none;"></div>
+                
+                <div class="nasemso-reference">
+                    <strong>NASEMSO 2022:</strong> Rapid neurological assessment tool for determining level of consciousness
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flashcards Section -->
+    <div id="flashcards" class="content-section">
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="flashcard-front">
+                <h3>🚨 Emergency Scene Safety</h3>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    What are the key components of scene safety assessment according to NASEMSO guidelines?
+                </p>
+                <p style="margin-top: 20px; color: #bfdbfe; font-size: 14px;">
+                    Click to reveal answer
+                </p>
+            </div>
+            <div class="flashcard-back">
+                <h3>✅ Answer</h3>
+                <p style="margin-top: 15px; line-height: 1.6;">
+                    <strong>BSI (Body Substance Isolation)</strong><br>
+                    <strong>Scene Safety</strong> - hazards, violence, stability<br>
+                    <strong>Situational Awareness</strong> - ongoing assessment<br>
+                    <strong>Number of Patients</strong> - resource needs<br>
+                    <strong>Additional Resources</strong> - fire, police, utilities
+                </p>
+            </div>
+            <div class="nasemso-reference">
+                <strong>NASEMSO 2022 Reference:</strong> Scene Safety and Assessment Protocol Standards
+            </div>
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="flashcard-front">
+                <h3>💊 Medication Administration</h3>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    What are the "6 Rights" of medication administration for EMTs?
+                </p>
+                <p style="margin-top: 20px; color: #bfdbfe; font-size: 14px;">
+                    Click to reveal answer
+                </p>
+            </div>
+            <div class="flashcard-back">
+                <h3>✅ Answer</h3>
+                <p style="margin-top: 15px; line-height: 1.6;">
+                    1. <strong>Right Patient</strong><br>
+                    2. <strong>Right Medication</strong><br>
+                    3. <strong>Right Dose</strong><br>
+                    4. <strong>Right Route</strong><br>
+                    5. <strong>Right Time</strong><br>
+                    6. <strong>Right Documentation</strong>
+                </p>
+            </div>
+            <div class="nasemso-reference">
+                <strong>NASEMSO 2022 Reference:</strong> Medication Administration Safety Standards
+            </div>
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="flashcard-front">
+                <h3>🫁 Respiratory Assessment</h3>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    What are normal respiratory rates for different age groups?
+                </p>
+                <p style="margin-top: 20px; color: #bfdbfe; font-size: 14px;">
+                    Click to reveal answer
+                </p>
+            </div>
+            <div class="flashcard-back">
+                <h3>✅ Answer</h3>
+                <p style="margin-top: 15px; line-height: 1.6;">
+                    <strong>Adult:</strong> 12-20 breaths/min<br>
+                    <strong>Child (1-8 years):</strong> 15-30 breaths/min<br>
+                    <strong>Infant (1 month-1 year):</strong> 25-50 breaths/min<br>
+                    <strong>Newborn:</strong> 30-60 breaths/min
+                </p>
+            </div>
+            <div class="nasemso-reference">
+                <strong>NASEMSO 2022 Reference:</strong> Pediatric and Adult Assessment Guidelines
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        function selectAnswer(option, isCorrect) {
+            // Remove any existing selections
+            option.parentElement.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct');
+                opt.style.background = '';
+            });
+            
+            if (isCorrect) {
+                option.classList.add('correct');
+                setTimeout(() => {
+                    alert('Correct! ✅\n\nGreat knowledge of NASEMSO 2022 protocols!');
+                }, 100);
+            } else {
+                option.style.background = '#dc2626';
+                setTimeout(() => {
+                    alert('Not quite right. ❌\n\nReview the NASEMSO 2022 guidelines for the correct protocol.');
+                }, 100);
+            }
+        }
+        
+        function calculateAPGAR() {
+            const appearance = parseInt(document.getElementById('apgar-appearance').value);
+            const pulse = parseInt(document.getElementById('apgar-pulse').value);
+            const grimace = parseInt(document.getElementById('apgar-grimace').value);
+            const activity = parseInt(document.getElementById('apgar-activity').value);
+            const respiratory = parseInt(document.getElementById('apgar-respiratory').value);
+            
+            const total = appearance + pulse + grimace + activity + respiratory;
+            
+            let interpretation = '';
+            if (total >= 7) {
+                interpretation = 'Normal - Good condition';
+            } else if (total >= 4) {
+                interpretation = 'Moderate depression - Close observation needed';
+            } else {
+                interpretation = 'Severe depression - Immediate intervention required';
+            }
+            
+            document.getElementById('apgar-result').innerHTML = 
+                `<strong>APGAR Score: ${total}/10</strong><br>${interpretation}`;
+            document.getElementById('apgar-result').style.display = 'block';
+        }
+        
+        function assessAVPU() {
+            const level = document.getElementById('avpu-level').value;
+            
+            let result = '';
+            switch(level) {
+                case 'alert':
+                    result = '<strong>ALERT</strong><br>Patient is awake and oriented. Continue normal assessment.';
+                    break;
+                case 'verbal':
+                    result = '<strong>VERBAL</strong><br>Patient responds to voice. Monitor closely for deterioration.';
+                    break;
+                case 'pain':
+                    result = '<strong>PAIN</strong><br>Patient responds only to painful stimuli. Significant neurological compromise.';
+                    break;
+                case 'unresponsive':
+                    result = '<strong>UNRESPONSIVE</strong><br>No response to stimuli. Critical condition - immediate intervention needed.';
+                    break;
+            }
+            
+            document.getElementById('avpu-result').innerHTML = result;
+            document.getElementById('avpu-result').style.display = 'block';
+        }
+        
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+        
+        // Welcome message
+        setTimeout(() => {
+            console.log('🚑 ProMedix EMS - Full Content Preview Loaded');
+            console.log('📚 45 Chapters | 🎯 NASEMSO 2022 Enhanced | 📋 Interactive Content');
+        }, 1000);
+    </script>
+</body>
+</html>

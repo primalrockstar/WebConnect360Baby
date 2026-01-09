@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProMedix EMS - Preview</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .content {
+            padding: 20px;
+        }
+        .button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #2563eb;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .feature-desc {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        .pricing {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .pricing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        .pricing-desc {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        .premium-button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        .premium-button:hover {
+            background: #b91c1c;
+        }
+        .free-text {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        .status {
+            background: #10b981;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status">
+            ✅ React Native App Successfully Created & Running
+        </div>
+        
+        <div class="header">
+            <div class="title">ProMedix EMS</div>
+            <div class="subtitle">Professional EMT-B Training Platform</div>
+        </div>
+
+        <div class="content">
+            <button class="button" onclick="showFeatures()">
+                📚 View All Features
+            </button>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <div class="feature-title">45 Total Chapters</div>
+                    <div class="feature-desc">41 Core + 4 Bonus chapters</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-title">NASEMSO 2022</div>
+                    <div class="feature-desc">Evidence-based content</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Enhanced Flashcards</div>
+                    <div class="feature-desc">Protocol references</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <div class="feature-title">Clinical Calculators</div>
+                    <div class="feature-desc">APGAR, AVPU, BP tools</div>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <div class="pricing-title">Complete EMT-B Mastery</div>
+                <div class="price">$14.99/month</div>
+                <div class="pricing-desc">45 chapters • Evidence-based • Offline mode</div>
+                
+                <button class="premium-button" onclick="showPremium()">
+                    Start 7-Day Free Trial
+                </button>
+                
+                <div class="free-text">Try 4 chapters free • No credit card required</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showFeatures() {
+            alert('ProMedix EMS Features:\n\n✅ 45 Total Chapters (41 Core + 4 Bonus)\n✅ NASEMSO 2022 Enhanced Content\n✅ Interactive Flashcards\n✅ Clinical Calculators\n✅ Progress Tracking\n✅ Offline Mode Ready');
+        }
+
+        function showPremium() {
+            alert('🚀 Premium Features:\n\n• Full access to all 45 chapters\n• NASEMSO 2022 enhanced content\n• Interactive flashcards with protocol references\n• Clinical calculators (APGAR, AVPU, BP)\n• Progress tracking and analytics\n• Offline mode capability\n\n7-day free trial - no commitment!');
+        }
+    </script>
+</body>
+</html>
