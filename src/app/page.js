@@ -1,13 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import {
-  Building,
-  Crown,
-  Database,
-  Shield,
-  Palette,
-  ArrowRight
-} from "lucide-react"
+// Simple components for deployment
+const Card = ({ children, className = "" }) => <div className={`bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 ${className}`}>{children}</div>
+const CardHeader = ({ children, className = "" }) => <div className={`p-6 border-b border-white/10 ${className}`}>{children}</div>
+const CardTitle = ({ children, className = "" }) => <h3 className={`text-xl font-bold ${className}`}>{children}</h3>
+const CardContent = ({ children }) => <div className="p-6">{children}</div>
+const Badge = ({ children, className = "" }) => <span className={`inline-block px-2 py-1 text-xs bg-white/20 rounded ${className}`}>{children}</span>
 
 export default function LandingPage() {
   const platforms = [
@@ -15,28 +11,28 @@ export default function LandingPage() {
       title: "The Rig",
       description: "High-fidelity clinical protocol simulation platform for advanced medical training and scenario-based learning.",
       features: ["Clinical Simulations", "Protocol Training", "Real-time Feedback", "Performance Analytics"],
-      icon: Building,
+      icon: "🏥",
       technologies: ["Simulation Engine", "Medical Protocols", "AI Training", "Cloud Infrastructure"]
     },
     {
       title: "Kronyql",
       description: "Forensic fintech and sovereign estate protocol designed specifically for artists' wealth management and asset protection.",
       features: ["Estate Planning", "Asset Protection", "Fintech Integration", "Artist-Focused Tools"],
-      icon: Database,
+      icon: "🎨",
       technologies: ["Fintech", "Cryptography", "Estate Protocols", "Artist Platforms"]
     },
     {
       title: "EmeritaCRM",
       description: "Enterprise clinical data management system for comprehensive healthcare data orchestration and compliance.",
       features: ["Clinical Data", "Compliance Management", "Data Orchestration", "Enterprise Integration"],
-      icon: Shield,
+      icon: "📊",
       technologies: ["Healthcare Data", "Compliance", "Enterprise Systems", "Data Security"]
     },
     {
       title: "Emerita Sovereign Engine (ESE)",
       description: "The Platform-as-a-Service core engine powering all flagship assets with sovereign-grade security and performance.",
       features: ["PaaS Core", "Sovereign Security", "Multi-Asset Integration", "High Performance"],
-      icon: Crown,
+      icon: "⚙️",
       technologies: ["PaaS", "Sovereign Infrastructure", "Security", "Scalability"]
     }
   ]
@@ -63,13 +59,13 @@ export default function LandingPage() {
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Badge className="px-4 py-2 text-sm">
                   Sovereign Security
                 </Badge>
-                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Badge className="px-4 py-2 text-sm">
                   Enterprise Infrastructure
                 </Badge>
-                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Badge className="px-4 py-2 text-sm">
                   Mission-Critical Solutions
                 </Badge>
               </div>
@@ -84,11 +80,11 @@ export default function LandingPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             {platforms.map((platform, index) => (
               <Card key={index} className="glass-card group hover:scale-105 transition-all duration-300">
-                <CardHeader className="text-center">
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-400/20 to-blue-500/20 mx-auto mb-4 w-fit">
-                    <platform.icon className="h-12 w-12 text-cyan-400" />
+                <CardHeader>
+                  <div className="text-center">
+                    <div className="text-4xl mb-4">{platform.icon}</div>
+                    <CardTitle>{platform.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-xl font-bold">{platform.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-white/70 text-sm leading-relaxed">
@@ -100,7 +96,7 @@ export default function LandingPage() {
                       <h4 className="font-semibold text-sm mb-2">Key Features:</h4>
                       <div className="flex flex-wrap gap-1">
                         {platform.features.map((feature, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs border-white/20 text-white/60">
+                          <Badge key={idx} className="text-xs">
                             {feature}
                           </Badge>
                         ))}
@@ -111,7 +107,7 @@ export default function LandingPage() {
                       <h4 className="font-semibold text-sm mb-2">Technologies:</h4>
                       <div className="flex flex-wrap gap-1">
                         {platform.technologies.map((tech, idx) => (
-                          <Badge key={idx} className="text-xs bg-blue-500/20 text-blue-200 border-blue-400/40">
+                          <Badge key={idx} className="text-xs">
                             {tech}
                           </Badge>
                         ))}
