@@ -9,66 +9,53 @@ export default function LandingPage() {
   const platforms = [
     {
       title: "The Rig",
-      description: "High-fidelity clinical protocol simulation platform for advanced medical training and scenario-based learning.",
-      features: ["Clinical Simulations", "Protocol Training", "Real-time Feedback", "Performance Analytics"],
+      description: "A high-fidelity clinical simulation engine for medical protocol mastery.",
+      features: ["Clinical Simulations", "Protocol Training", "Scenario-Based Learning"],
       icon: "🏥",
-      technologies: ["Simulation Engine", "Medical Protocols", "AI Training", "Cloud Infrastructure"]
+      technologies: ["Simulation Engine", "Medical Protocols", "Real-time Feedback"]
     },
     {
       title: "Kronyql",
-      description: "Forensic fintech and sovereign estate protocol designed specifically for artists' wealth management and asset protection.",
-      features: ["Estate Planning", "Asset Protection", "Fintech Integration", "Artist-Focused Tools"],
+      description: "A forensic settlement protocol and sovereign estate engine for creative intellectual property.",
+      features: ["Estate Planning", "Asset Protection", "Fintech Integration"],
       icon: "🎨",
-      technologies: ["Fintech", "Cryptography", "Estate Protocols", "Artist Platforms"]
+      technologies: ["Fintech", "Cryptography", "Artist-Focused Tools"]
     },
     {
       title: "EmeritaCRM",
-      description: "Enterprise clinical data management system for comprehensive healthcare data orchestration and compliance.",
-      features: ["Clinical Data", "Compliance Management", "Data Orchestration", "Enterprise Integration"],
+      description: "An enterprise data management platform designed for institutional research and strict compliance auditing.",
+      features: ["Clinical Data", "Compliance Management", "Data Orchestration"],
       icon: "📊",
-      technologies: ["Healthcare Data", "Compliance", "Enterprise Systems", "Data Security"]
+      technologies: ["Healthcare Data", "Compliance", "Enterprise Systems"]
     },
     {
       title: "Emerita Sovereign Engine (ESE)",
-      description: "The Platform-as-a-Service core engine powering all flagship assets with sovereign-grade security and performance.",
-      features: ["PaaS Core", "Sovereign Security", "Multi-Asset Integration", "High Performance"],
+      description: "The PaaS core. Built with FastAPI, AWS Fargate, and RDS, it provides the security and logic layer for all Emerita platforms.",
+      features: ["PaaS Core", "Sovereign Security", "Multi-Asset Integration"],
       icon: "⚙️",
-      technologies: ["PaaS", "Sovereign Infrastructure", "Security", "Scalability"]
+      technologies: ["FastAPI", "AWS Fargate", "RDS"]
     }
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 py-20 lg:py-32">
+      <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
-            <div className="mb-12">
-              <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
-                Emerita Clinical™<br />The Sovereign Infrastructure Design House
-              </h1>
-              <p className="text-xl lg:text-2xl text-white/80">
-                30 Years of High-Level Performance in Military, Medical, and Artistic Sectors
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-white/70 leading-relaxed mb-8">
-                Delivering sovereign-grade infrastructure solutions that power critical operations across defense,
-                healthcare, and creative industries with uncompromising security and performance standards.
-              </p>
-
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <Badge className="px-4 py-2 text-sm">
-                  Sovereign Security
-                </Badge>
-                <Badge className="px-4 py-2 text-sm">
-                  Enterprise Infrastructure
-                </Badge>
-                <Badge className="px-4 py-2 text-sm">
-                  Mission-Critical Solutions
-                </Badge>
-              </div>
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              Sovereign Infrastructure for the High-Stakes Economy
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
+              EmeritaClinical™ is a design house for high-integrity systems. We bridge the gap between foundational engineering and mission-critical application layers, leveraging the Emerita Sovereign Engine (ESE) to provide absolute data ownership and operational resilience.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                Explore the Engine
+              </button>
+              <button className="border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                Architectural Consultation
+              </button>
             </div>
           </div>
         </div>
@@ -118,6 +105,66 @@ export default function LandingPage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-4 bg-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">Foundational Pedigree</h2>
+          <p className="text-lg text-gray-300 mb-6">
+            Three decades of infrastructure experience in mission-critical systems.
+          </p>
+          <div className="space-y-6 text-left max-w-3xl mx-auto">
+            <p className="text-gray-300">
+              Our foundation includes engineering mission-critical communications for high-volume flight operations during the Bosnian Crisis at Aviano AFB. This experience established our "Zero-Fail" mindset, bringing military-grade networking reliability to enterprise software and small business solutions.
+            </p>
+            <p className="text-gray-300">
+              Over thirty years, we've maintained performance and data integrity across Defense, Clinical Research, and Media sectors, delivering systems that operate under the highest stakes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Consultation Form */}
+      <section className="py-20 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Sovereign Consultation Intake</h2>
+          <form className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Domain</label>
+              <select className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500">
+                <option value="">Select Domain</option>
+                <option value="clinical">Clinical</option>
+                <option value="fintech">Fintech</option>
+                <option value="media">Media</option>
+                <option value="education">Education</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Critical Requirement</label>
+              <select className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500">
+                <option value="">Select Requirement</option>
+                <option value="security">Security</option>
+                <option value="automated-splits">Automated Splits</option>
+                <option value="data-scrubbing">Data Scrubbing</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Sovereignty Score (How important is owning your data?)</label>
+              <input type="range" min="1" max="10" className="w-full" />
+              <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <span>1 - Minimal</span>
+                <span>10 - Critical</span>
+              </div>
+            </div>
+            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors">
+              Submit Requirement
+            </button>
+          </form>
+          <p className="text-center text-gray-400 mt-4">
+            Requirement received. Your architectural audit will be reviewed with clinical rigor. Expect a response within 48 hours.
+          </p>
         </div>
       </section>
 

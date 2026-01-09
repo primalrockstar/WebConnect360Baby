@@ -1,29 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import MedicalDisclaimer from "@/components/medical-disclaimer";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
+const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mono" });
 
 export const metadata: Metadata = {
-  title: "EmeritaClinical™ – Modern EMT, AEMT, and Paramedic Learning Tools",
+  title: "Emerita Clinical™ - The Sovereign Infrastructure Design House",
   description:
-    "EmeritaClinical™ is a modern EMS learning platform created by EMS student Shaun Williamson with study chapters, flashcards, scenarios, medication tools, rhythm training, documentation labs, and more.",
+    "Sovereign Infrastructure for the High-Stakes Economy. EmeritaClinical™ designs high-integrity systems bridging foundational engineering and mission-critical applications with absolute data ownership and operational resilience.",
   keywords: [
-    "EMT study app",
-    "EMT-B training",
-    "AEMT app",
-    "Paramedic learning tools",
-    "EMS flashcards",
-    "EMS pharmacology app",
-    "ECG rhythm practice",
-    "EMS education platform",
-    "ePCR training",
-    "EMS voice notes",
+    "sovereign infrastructure",
+    "high-integrity systems",
+    "data ownership",
+    "mission-critical applications",
+    "clinical simulation",
+    "forensic fintech",
+    "enterprise data management",
+    "PaaS core",
   ],
 };
 
@@ -34,14 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body className={`${inter.variable} ${robotoMono.variable} antialiased font-sans`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
-        <div className="container mx-auto px-4 md:px-6 pb-8">
-          <MedicalDisclaimer />
-        </div>
+
         <Footer />
       </body>
     </html>
